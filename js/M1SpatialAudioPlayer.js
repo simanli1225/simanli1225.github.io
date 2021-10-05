@@ -235,7 +235,7 @@ async function setupCamera() {
 async function renderPrediction() {
   const predictions = await model.estimateFaces(video);
   const warningMessage = 'WARNING: UNABLE TO TRACK FACE!';
-  // ctx.drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, canvas.width, canvas.height);
 
   document.getElementById('stats').innerHTML = '';
   document.getElementById('warning').innerHTML = (window.modeTracker === 'facetracker' && predictions.length === 0)
@@ -374,6 +374,13 @@ async function trackerMain() {
   canvas.width = videoWidth;
   canvas.height = videoHeight;
 
+//----------------------------------------added begin
+const fpsControl = new controls.FPS();
+
+//----------------------------------------added end
+
+
+
   // NOTE: This takes the first element by CSS class
   // and after some changes on the HTML page this code can be broken
   // FIXME: Need to use getElementsById
@@ -395,7 +402,32 @@ async function trackerMain() {
 
   // NOTE: iOS fix; should be start after build, load and resize events
   video.play();
+
+
+  //--------------------------------------NEW begin of test!!!  add here to try
+  function onResults(results) {
+    // Hide the spinner.
+    // document.body.classList.add('loaded');
+    // Update the frame rate.
+    fpsControl.tick();
+    // Draw the overlays.
+    ctx.save();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // canvasCtx.drawImage(results.image, 0, 0, canvasElement.width, canvasElement.height);
+    if (results.multiFaceLandmarks) {
+        for (const landmarks of results.multiFaceLandmarks) {
+            drawingUtils.drawConnectors(ctx, landmarks, mpFaceMesh.FACEMESH_TESSELATION, { color: '#C0C0C070', lineWidth: 1 });
+        }
+    }
+    ctx.restore();
 }
+
+const faceMesh = new FaceMesh({ locateFile: (file) => {
+        return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/${file}`;
+    } });
+faceMesh.onResults(onResults);
+}
+ //-------------------------------------- END !!!!  of test!!!  add here to try
 
 document.addEventListener('DOMContentLoaded', () => {
   setupDatGui();
