@@ -393,9 +393,10 @@ async function trackerMain() {
   info.innerHTML = '';
   document.getElementById('main').style.display = '';
 
-  // NOTE: iOS fix; should be start after build, load and resize events
-  video.play();
-}
+
+
+
+
 //--------------------------------------NEW begin of test!!!  add here to try
 function onResults(results) {
   // Hide the spinner.
@@ -419,6 +420,15 @@ return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/${file}`;
 } });
 faceMesh.onResults(onResults);
 //-------------------------------------- END !!!!  of test!!!  add here to try
+
+
+
+
+
+  // NOTE: iOS fix; should be start after build, load and resize events
+  video.play();
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   setupDatGui();
