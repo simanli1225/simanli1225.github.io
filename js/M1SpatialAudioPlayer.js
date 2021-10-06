@@ -303,28 +303,31 @@ async function renderPrediction() {
       }
 
       const keypoints = prediction.scaledMesh;
+      // ----------comment down for testing
 
-      for (let i = 0; i < keypoints.length; i += 1) {
-        const x = keypoints[i][0];
-        const y = keypoints[i][1];
+      // for (let i = 0; i < keypoints.length; i += 1) {
+      //   const x = keypoints[i][0];
+      //   const y = keypoints[i][1];
 
-        ctx.fillStyle = "white";
-        ctx.fillRect(x, y, 2, 2);
+      //   ctx.fillStyle = "white";
+      //   ctx.fillRect(x, y, 2, 2);
 
-        if (parseInt(controls.nPoint, 10) === i) {
-          ctx.fillStyle = "red";
-          ctx.fillRect(x, y, 6, 6);
-        }
+      //   if (parseInt(controls.nPoint, 10) === i) {
+      //     ctx.fillStyle = "red";
+      //     ctx.fillRect(x, y, 6, 6);
+      //   }
 
-        if (i === 10 || i === 152) {
-          ctx.fillStyle = "green";
-          ctx.fillRect(x, y, 6, 6);
-        }
-        if (i === 234 || i === 454) {
-          ctx.fillStyle = "pink";
-          ctx.fillRect(x, y, 6, 6);
-        }
-      }
+      //   if (i === 10 || i === 152) {
+      //     ctx.fillStyle = "green";
+      //     ctx.fillRect(x, y, 6, 6);
+      //   }
+      //   if (i === 234 || i === 454) {
+      //     ctx.fillStyle = "pink";
+      //     ctx.fillRect(x, y, 6, 6);
+      //   }
+      // }
+      // ----------comment above for testing
+
       // ----------comment down for testing
       // const pTop = new THREE.Vector3(prediction.mesh[10][0], prediction.mesh[10][1], prediction.mesh[10][2]);
       // const pBottom = new THREE.Vector3(prediction.mesh[152][0], prediction.mesh[152][1], prediction.mesh[152][2]);
