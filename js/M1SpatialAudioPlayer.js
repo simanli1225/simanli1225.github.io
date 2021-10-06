@@ -397,29 +397,29 @@ async function trackerMain() {
 
 
 
-//--------------------------------------NEW begin of test!!!  add here to try
-function onResults(results) {
-  // Hide the spinner.
-  // document.body.classList.add('loaded');
-  // Update the frame rate.
-  fpsControl.tick();
-  // Draw the overlays.
-  ctx.save();
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // canvasCtx.drawImage(results.image, 0, 0, canvasElement.width, canvasElement.height);
-  if (results.multiFaceLandmarks) {
-      for (const landmarks of results.multiFaceLandmarks) {
-          drawingUtils.drawConnectors(ctx, landmarks, mpFaceMesh.FACEMESH_TESSELATION, { color: '#C0C0C070', lineWidth: 1 });
-      }
-  }
-  ctx.restore();
-}
+// //--------------------------------------NEW begin of test!!!  add here to try
+// function onResults(results) {
+//   // Hide the spinner.
+//   // document.body.classList.add('loaded');
+//   // Update the frame rate.
+//   fpsControl.tick();
+//   // Draw the overlays.
+//   ctx.save();
+//   ctx.clearRect(0, 0, canvas.width, canvas.height);
+//   // canvasCtx.drawImage(results.image, 0, 0, canvasElement.width, canvasElement.height);
+//   if (results.multiFaceLandmarks) {
+//       for (const landmarks of results.multiFaceLandmarks) {
+//           drawingUtils.drawConnectors(ctx, landmarks, mpFaceMesh.FACEMESH_TESSELATION, { color: '#C0C0C070', lineWidth: 1 });
+//       }
+//   }
+//   ctx.restore();
+// }
 
-const faceMesh = new FaceMesh({ locateFile: (file) => {
-return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/${file}`;
-} });
-faceMesh.onResults(onResults);
-//-------------------------------------- END !!!!  of test!!!  add here to try
+// const faceMesh = new FaceMesh({ locateFile: (file) => {
+// return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/${file}`;
+// } });
+// faceMesh.onResults(onResults);
+// //-------------------------------------- END !!!!  of test!!!  add here to try
 
 
 
