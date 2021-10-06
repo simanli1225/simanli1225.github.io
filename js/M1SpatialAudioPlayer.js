@@ -395,7 +395,8 @@ async function trackerMain() {
 
   // NOTE: iOS fix; should be start after build, load and resize events
   video.play();
-  
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   setupDatGui();
   trackerMain();
