@@ -272,7 +272,7 @@ async function renderPrediction() {
           ctx.fillRect(x, y, 6, 6);
         }
         if (i === 234 || i === 454) {
-          ctx.fillStyle = 'yellow';
+          ctx.fillStyle = 'pink';
           ctx.fillRect(x, y, 6, 6);
         }
       }
