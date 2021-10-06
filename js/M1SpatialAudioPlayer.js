@@ -383,8 +383,8 @@ async function trackerMain() {
   ctx = canvas.getContext('2d');
   ctx.translate(canvas.width, 0);
   ctx.scale(-1, 1);
-  ctx.fillStyle = '#32EEDB';
-  ctx.strokeStyle = '#32EEDB';
+  ctx.fillStyle = '#F5339E';
+  ctx.strokeStyle = '#F5339E';
 
   model = await facemesh.load({ maxFaces: 1 });
   await renderPrediction();
