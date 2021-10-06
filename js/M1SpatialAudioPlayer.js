@@ -305,12 +305,12 @@ async function renderPrediction() {
       const keypoints = prediction.scaledMesh;
       // ----------comment down for testing
 
-      // for (let i = 0; i < keypoints.length; i += 1) {
-      //   const x = keypoints[i][0];
-      //   const y = keypoints[i][1];
+      for (let i = 0; i < keypoints.length; i += 1) {
+        const x = keypoints[i][0];
+        const y = keypoints[i][1];
 
-      //   ctx.fillStyle = "white";
-      //   ctx.fillRect(x, y, 2, 2);
+        ctx.fillStyle = "white";
+        ctx.fillRect(x, y, 2, 2);
 
       //   if (parseInt(controls.nPoint, 10) === i) {
       //     ctx.fillStyle = "red";
@@ -326,6 +326,7 @@ async function renderPrediction() {
       //     ctx.fillRect(x, y, 6, 6);
       //   }
       // }
+
       // ----------comment above for testing
 
       // ----------comment down for testing
