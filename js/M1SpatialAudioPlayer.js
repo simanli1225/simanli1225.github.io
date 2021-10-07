@@ -444,8 +444,6 @@ async function renderPrediction() {
 
 //draw mesh
 
-    const keypoints = prediction.scaledMesh;
-
     //  Draw Triangles
     for (let i = 0; i < TRIANGULATION.length / 3; i++) {
       // Get sets of three keypoints for the triangle

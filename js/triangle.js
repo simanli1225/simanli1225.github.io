@@ -1,4 +1,4 @@
-export const TRIANGULATION = [
+ const TRIANGULATION = [
     127,
     34,
     139,
