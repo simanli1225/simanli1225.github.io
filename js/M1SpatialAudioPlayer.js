@@ -306,13 +306,13 @@ async function renderPrediction() {
 
 
 //--------------------------------------NEW begin of test!!!  add here to try
-const fpsControl = new controls.FPS();
+// const fpsControl = new controls.FPS();
 
 function onResults(results) {
   // Hide the spinner.
   // document.body.classList.add('loaded');
   // Update the frame rate.
-  fpsControl.tick();
+  // fpsControl.tick();
   // Draw the overlays.
   ctx.save();
   // ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -331,65 +331,65 @@ return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/${file}`;
 faceMesh.onResults(onResults);
 
 
-new controls
-    .ControlPanel(controlsElement, {
-    selfieMode: true,
-    maxNumFaces: 1,
-    minDetectionConfidence: 0.5,
-    minTrackingConfidence: 0.5
-})
-    .add([
-    new controls.StaticText({ title: 'MediaPipe Face Mesh' }),
-    fpsControl,
-    new controls.Toggle({ title: 'Selfie Mode', field: 'selfieMode' }),
-    new controls.SourcePicker({
-        onSourceChanged: () => {
-            faceMesh.reset();
-        },
-        onFrame: async (input, size) => {
-            const aspect = size.height / size.width;
-            let width, height;
-            if (window.innerWidth > window.innerHeight) {
-                height = window.innerHeight;
-                width = height / aspect;
-            }
-            else {
-                width = window.innerWidth;
-                height = width * aspect;
-            }
-            canvasElement.width = width;
-            canvasElement.height = height;
-            await faceMesh.send({ image: input });
-        },
-        examples: {
-            videos: [],
-            images: [],
-        }
-    }),
-    new controls.Slider({
-        title: 'Max Number of Faces',
-        field: 'maxNumFaces',
-        range: [1, 4],
-        step: 1
-    }),
-    new controls.Slider({
-        title: 'Min Detection Confidence',
-        field: 'minDetectionConfidence',
-        range: [0, 1],
-        step: 0.01
-    }),
-    new controls.Slider({
-        title: 'Min Tracking Confidence',
-        field: 'minTrackingConfidence',
-        range: [0, 1],
-        step: 0.01
-    }),
-])
-    .on(x => {
-    const options = x;
-    videoElement.classList.toggle('selfie', options.selfieMode);
-    faceMesh.setOptions(options);
-});
+// new controls
+// //     .ControlPanel(controlsElement, {
+// //     selfieMode: true,
+// //     maxNumFaces: 1,
+// //     minDetectionConfidence: 0.5,
+// //     minTrackingConfidence: 0.5
+// // })
+//     .add([
+//     new controls.StaticText({ title: 'MediaPipe Face Mesh' }),
+//     fpsControl,
+//     new controls.Toggle({ title: 'Selfie Mode', field: 'selfieMode' }),
+//     new controls.SourcePicker({
+//         onSourceChanged: () => {
+//             faceMesh.reset();
+//         },
+//         onFrame: async (input, size) => {
+//             const aspect = size.height / size.width;
+//             let width, height;
+//             if (window.innerWidth > window.innerHeight) {
+//                 height = window.innerHeight;
+//                 width = height / aspect;
+//             }
+//             else {
+//                 width = window.innerWidth;
+//                 height = width * aspect;
+//             }
+//             canvasElement.width = width;
+//             canvasElement.height = height;
+//             await faceMesh.send({ image: input });
+//         },
+//         examples: {
+//             videos: [],
+//             images: [],
+//         }
+//     }),
+//     new controls.Slider({
+//         title: 'Max Number of Faces',
+//         field: 'maxNumFaces',
+//         range: [1, 4],
+//         step: 1
+//     }),
+//     new controls.Slider({
+//         title: 'Min Detection Confidence',
+//         field: 'minDetectionConfidence',
+//         range: [0, 1],
+//         step: 0.01
+//     }),
+//     new controls.Slider({
+//         title: 'Min Tracking Confidence',
+//         field: 'minTrackingConfidence',
+//         range: [0, 1],
+//         step: 0.01
+//     }),
+// ])
+//     .on(x => {
+//     const options = x;
+//     videoElement.classList.toggle('selfie', options.selfieMode);
+//     faceMesh.setOptions(options);
+// });
 
 
 //-------------------------------------- END !!!!  of test!!!  add here to try
@@ -400,27 +400,27 @@ new controls
       
       // ----------comment down for testing
 
-      // for (let i = 0; i < keypoints.length; i += 1) {
-      //   const x = keypoints[i][0];
-      //   const y = keypoints[i][1];
+      for (let i = 0; i < keypoints.length; i += 1) {
+        const x = keypoints[i][0];
+        const y = keypoints[i][1];
 
-      //   ctx.fillStyle = "white";
-      //   ctx.fillRect(x, y, 2, 2);
+        ctx.fillStyle = "white";
+        ctx.fillRect(x, y, 2, 2);
 
-      //   if (parseInt(controls.nPoint, 10) === i) {
-      //     ctx.fillStyle = "red";
-      //     ctx.fillRect(x, y, 6, 6);
-      //   }
+        if (parseInt(controls.nPoint, 10) === i) {
+          ctx.fillStyle = "red";
+          ctx.fillRect(x, y, 6, 6);
+        }
 
-      //   if (i === 10 || i === 152) {
-      //     ctx.fillStyle = "green";
-      //     ctx.fillRect(x, y, 6, 6);
-      //   }
-      //   if (i === 234 || i === 454) {
-      //     ctx.fillStyle = "pink";
-      //     ctx.fillRect(x, y, 6, 6);
-      //   }
-      // }
+        if (i === 10 || i === 152) {
+          ctx.fillStyle = "green";
+          ctx.fillRect(x, y, 6, 6);
+        }
+        if (i === 234 || i === 454) {
+          ctx.fillStyle = "pink";
+          ctx.fillRect(x, y, 6, 6);
+        }
+      }
 
       // ----------comment above for testing
 
