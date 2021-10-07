@@ -268,6 +268,19 @@ async function setupCamera() {
 async function renderPrediction() {
   const predictions = await model.estimateFaces(video);
   const warningMessage = "WARNING: UNABLE TO TRACK FACE!";
+  // ctx.drawImage(
+  //   video,
+  //   0,
+  //   0,
+  //   videoWidth,
+  //   videoHeight,
+  //   0,
+  //   0,
+  //   canvas.width,
+  //   canvas.height
+  // );
+
+  //get rid of the video
   ctx.drawImage(
     video,
     0,
@@ -276,8 +289,8 @@ async function renderPrediction() {
     videoHeight,
     0,
     0,
-    canvas.width,
-    canvas.height
+    0,
+    0
   );
 
   document.getElementById("stats").innerHTML = "";
