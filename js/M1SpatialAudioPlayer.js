@@ -306,11 +306,13 @@ async function renderPrediction() {
 
 
 //--------------------------------------NEW begin of test!!!  add here to try
+const fpsControl = new controls.FPS();
+
 function onResults(results) {
   // Hide the spinner.
   // document.body.classList.add('loaded');
   // Update the frame rate.
-  // fpsControl.tick();
+  fpsControl.tick();
   // Draw the overlays.
   ctx.save();
   // ctx.clearRect(0, 0, canvas.width, canvas.height);
