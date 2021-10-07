@@ -422,6 +422,10 @@ async function renderPrediction() {
       //   }
       // }
 
+
+
+
+
       //draw trangles
       const drawPath = (ctx,points,closePath) => {
         const region = new Path2D();
@@ -437,6 +441,22 @@ async function renderPrediction() {
         ctx.stroke(region);
       };
 
+
+//draw mesh
+
+    const keypoints = prediction.scaledMesh;
+
+    //  Draw Triangles
+    for (let i = 0; i < TRIANGULATION.length / 3; i++) {
+      // Get sets of three keypoints for the triangle
+      const points = [
+        TRIANGULATION[i * 3],
+        TRIANGULATION[i * 3 + 1],
+        TRIANGULATION[i * 3 + 2],
+      ].map((index) => keypoints[index]);
+      //  Draw triangle
+      drawPath(ctx, points, true);
+    }
       //draw the points
       for (let i = 0; i < keypoints.length; i += 1) {
         const x = keypoints[i][0];
