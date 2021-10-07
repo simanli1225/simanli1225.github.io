@@ -281,17 +281,7 @@ async function renderPrediction() {
   // );
 
   //get rid of the video
-  ctx.drawImage(
-    video,
-    0,
-    0,
-    videoWidth,
-    videoHeight,
-    0,
-    0,
-    0,
-    0
-  );
+  ctx.drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, 0, 0);
 
   document.getElementById("stats").innerHTML = "";
   document.getElementById("warning").innerHTML =
@@ -318,156 +308,34 @@ async function renderPrediction() {
       const keypoints = prediction.scaledMesh;
 
       //--------------------------------------NEW begin of test!!!  add here to try
-      // const fpsControl = new controls.FPS();
-
-      function onResults(results) {
-        // Hide the spinner.
-        // document.body.classList.add('loaded');
-        // Update the frame rate.
-        // fpsControl.tick();
-        // Draw the overlays.
-        ctx.save();
-        // ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // canvasCtx.drawImage(results.image, 0, 0, canvasElement.width, canvasElement.height);
-        if (results.multiFaceLandmarks) {
-          for (const landmarks of results.multiFaceLandmarks) {
-            drawingUtils.drawConnectors(
-              ctx,
-              landmarks,
-              mpFaceMesh.FACEMESH_TESSELATION,
-              { color: "#C0C0C070", lineWidth: 1 }
-            );
-          }
-        }
-        ctx.restore();
-      }
-
-      const faceMesh = new FaceMesh({
-        locateFile: (file) => {
-          return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/${file}`;
-        },
-      });
-      faceMesh.onResults(onResults);
-
-      // new controls
-      // //     .ControlPanel(controlsElement, {
-      // //     selfieMode: true,
-      // //     maxNumFaces: 1,
-      // //     minDetectionConfidence: 0.5,
-      // //     minTrackingConfidence: 0.5
-      // // })
-      //     .add([
-      //     new controls.StaticText({ title: 'MediaPipe Face Mesh' }),
-      //     fpsControl,
-      //     new controls.Toggle({ title: 'Selfie Mode', field: 'selfieMode' }),
-      //     new controls.SourcePicker({
-      //         onSourceChanged: () => {
-      //             faceMesh.reset();
-      //         },
-      //         onFrame: async (input, size) => {
-      //             const aspect = size.height / size.width;
-      //             let width, height;
-      //             if (window.innerWidth > window.innerHeight) {
-      //                 height = window.innerHeight;
-      //                 width = height / aspect;
-      //             }
-      //             else {
-      //                 width = window.innerWidth;
-      //                 height = width * aspect;
-      //             }
-      //             canvasElement.width = width;
-      //             canvasElement.height = height;
-      //             await faceMesh.send({ image: input });
-      //         },
-      //         examples: {
-      //             videos: [],
-      //             images: [],
-      //         }
-      //     }),
-      //     new controls.Slider({
-      //         title: 'Max Number of Faces',
-      //         field: 'maxNumFaces',
-      //         range: [1, 4],
-      //         step: 1
-      //     }),
-      //     new controls.Slider({
-      //         title: 'Min Detection Confidence',
-      //         field: 'minDetectionConfidence',
-      //         range: [0, 1],
-      //         step: 0.01
-      //     }),
-      //     new controls.Slider({
-      //         title: 'Min Tracking Confidence',
-      //         field: 'minTrackingConfidence',
-      //         range: [0, 1],
-      //         step: 0.01
-      //     }),
-      // ])
-      //     .on(x => {
-      //     const options = x;
-      //     videoElement.classList.toggle('selfie', options.selfieMode);
-      //     faceMesh.setOptions(options);
-      // });
-
-      //-------------------------------------- END !!!!  of test!!!  add here to try
-
-      // ----------comment down for testing
-
-      // for (let i = 0; i < keypoints.length; i += 1) {
-      //   const x = keypoints[i][0];
-      //   const y = keypoints[i][1];
-
-      //   ctx.fillStyle = "white";
-      //   ctx.fillRect(x, y, 2, 2);
-
-      //   if (parseInt(controls.nPoint, 10) === i) {
-      //     ctx.fillStyle = "red";
-      //     ctx.fillRect(x, y, 6, 6);
-      //   }
-
-      //   if (i === 10 || i === 152) {
-      //     ctx.fillStyle = "green";
-      //     ctx.fillRect(x, y, 6, 6);
-      //   }
-      //   if (i === 234 || i === 454) {
-      //     ctx.fillStyle = "pink";
-      //     ctx.fillRect(x, y, 6, 6);
-      //   }
-      // }
-
-
-
-
-
       //draw trangles
-      const drawPath = (ctx,points,closePath) => {
+      const drawPath = (ctx, points, closePath) => {
         const region = new Path2D();
-        region.moveTo(points[0][0],points[0][1]);
-        for(let i=1;i<points.length;i++){
+        region.moveTo(points[0][0], points[0][1]);
+        for (let i = 1; i < points.length; i++) {
           const point = points[i];
-          region.lineTo(point[0],point[1]);
+          region.lineTo(point[0], point[1]);
         }
-        if(closePath){
+        if (closePath) {
           region.closePath();
         }
-        ctx.strokeStyle="purple";
+        ctx.strokeStyle = "grey";
         ctx.stroke(region);
       };
 
+      //draw mesh
 
-//draw mesh
-
-    //  Draw Triangles
-    for (let i = 0; i < TRIANGULATION.length / 3; i++) {
-      // Get sets of three keypoints for the triangle
-      const points = [
-        TRIANGULATION[i * 3],
-        TRIANGULATION[i * 3 + 1],
-        TRIANGULATION[i * 3 + 2],
-      ].map((index) => keypoints[index]);
-      //  Draw triangle
-      drawPath(ctx, points, true);
-    }
+      //  Draw Triangles
+      for (let i = 0; i < TRIANGULATION.length / 3; i++) {
+        // Get sets of three keypoints for the triangle
+        const points = [
+          TRIANGULATION[i * 3],
+          TRIANGULATION[i * 3 + 1],
+          TRIANGULATION[i * 3 + 2],
+        ].map((index) => keypoints[index]);
+        //  Draw triangle
+        drawPath(ctx, points, true);
+      }
       //draw the points
       for (let i = 0; i < keypoints.length; i += 1) {
         const x = keypoints[i][0];
