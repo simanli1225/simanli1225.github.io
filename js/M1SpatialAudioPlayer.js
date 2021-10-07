@@ -310,10 +310,10 @@ function onResults(results) {
   // Hide the spinner.
   // document.body.classList.add('loaded');
   // Update the frame rate.
-  fpsControl.tick();
+  // fpsControl.tick();
   // Draw the overlays.
-  ctx.save();
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // ctx.save();
+  // ctx.clearRect(0, 0, canvas.width, canvas.height);
   // canvasCtx.drawImage(results.image, 0, 0, canvasElement.width, canvasElement.height);
   if (results.multiFaceLandmarks) {
       for (const landmarks of results.multiFaceLandmarks) {
