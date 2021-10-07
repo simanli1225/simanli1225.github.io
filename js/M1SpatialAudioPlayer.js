@@ -282,6 +282,9 @@ async function renderPrediction() {
 
   //get rid of the video
   ctx.drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, 0, 0);
+  //draw black image
+  ctx.fillStyle = "rgb(0,0,0)";
+  ctx.fillRect(40, 60, canvas.width, canvas.height);
 
   document.getElementById("stats").innerHTML = "";
   document.getElementById("warning").innerHTML =
