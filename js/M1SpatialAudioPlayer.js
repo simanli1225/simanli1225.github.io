@@ -312,7 +312,7 @@ function onResults(results) {
   // Update the frame rate.
   // fpsControl.tick();
   // Draw the overlays.
-  // ctx.save();
+  ctx.save();
   // ctx.clearRect(0, 0, canvas.width, canvas.height);
   // canvasCtx.drawImage(results.image, 0, 0, canvasElement.width, canvasElement.height);
   if (results.multiFaceLandmarks) {
