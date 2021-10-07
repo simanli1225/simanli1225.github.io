@@ -322,7 +322,7 @@ async function renderPrediction() {
         if (closePath) {
           region.closePath();
         }
-        ctx.strokeStyle = "grey";
+        ctx.strokeStyle = "white";
         ctx.stroke(region);
       };
 
@@ -340,14 +340,14 @@ async function renderPrediction() {
         drawPath(ctx, points, true);
       }
       //draw the points
-      for (let i = 0; i < keypoints.length; i += 1) {
-        const x = keypoints[i][0];
-        const y = keypoints[i][1];
-        ctx.beginPath();
-        ctx.arc(x, y, 1, 0, 3 * Math.PI);
-        ctx.fillstyle = "pink";
-        ctx.fill();
-      }
+      // for (let i = 0; i < keypoints.length; i += 1) {
+      //   const x = keypoints[i][0];
+      //   const y = keypoints[i][1];
+      //   ctx.beginPath();
+      //   ctx.arc(x, y, 1, 0, 3 * Math.PI);
+      //   ctx.fillstyle = "pink";
+      //   ctx.fill();
+      // }
 
       // ----------comment above for testing
 
