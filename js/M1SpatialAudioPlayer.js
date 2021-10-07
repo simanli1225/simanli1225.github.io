@@ -426,7 +426,7 @@ faceMesh.onResults(onResults);
         const y = keypoints[i][1];
         ctx.beginPath();
         ctx.arc(x,y,1,0,3*Math.PI);
-        ctx.fillstyle = "aqua";
+        ctx.fillstyle = "pink";
         ctx.fill();
 
       }
