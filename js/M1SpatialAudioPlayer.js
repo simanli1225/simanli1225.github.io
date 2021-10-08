@@ -323,6 +323,7 @@ async function renderPrediction() {
           region.closePath();
         }
         ctx.strokeStyle = "white";
+        ctx.lineWidth = 10;
         ctx.stroke(region);
       };
 
@@ -338,6 +339,8 @@ async function renderPrediction() {
         ].map((index) => keypoints[index]);
         //  Draw triangle
         drawPath(ctx, points, true);
+        // drawingUtils.drawConnectors(ctx, landmarks, mpFaceMesh.FACEMESH_TESSELATION, { color: '#C0C0C070', lineWidth: 1 });
+
       }
       //draw the points
       // for (let i = 0; i < keypoints.length; i += 1) {
