@@ -323,7 +323,7 @@ async function renderPrediction() {
           region.closePath();
         }
         ctx.strokeStyle = "white";
-        ctx.lineWidth = 10;
+        ctx.lineWidth = 1;
         ctx.stroke(region);
       };
 
