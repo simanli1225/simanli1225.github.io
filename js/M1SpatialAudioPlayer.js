@@ -447,8 +447,10 @@ async function trackerMain() {
   videoWidth = window.innerWidth;
   videoHeight = window.innerHeight;
 
-  videoWidth = video.videoWidth;
-  videoHeight = video.videoHeight;
+  // height = width * aspect;
+
+  // videoWidth = video.videoWidth;
+  // videoHeight = video.videoHeight;
   video.width = videoWidth;
   video.height = videoHeight;
 
