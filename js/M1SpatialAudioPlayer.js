@@ -443,6 +443,10 @@ async function trackerMain() {
     return null;
   }
 
+  //---new make video full screen
+  videoWidth = window.innerWidth;
+  videoHeight = window.innerHeight;
+
   videoWidth = video.videoWidth;
   videoHeight = video.videoHeight;
   video.width = videoWidth;
