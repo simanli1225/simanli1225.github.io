@@ -322,7 +322,8 @@ async function renderPrediction() {
         if (closePath) {
           region.closePath();
         }
-        ctx.strokeStyle = "white";
+        // ctx.strokeStyle = "white";
+        ctx.strokeStyle = "#C0C0C070";
         ctx.lineWidth = 1;
         ctx.stroke(region);
       };
