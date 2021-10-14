@@ -281,10 +281,14 @@ async function renderPrediction() {
   // );
 
   //get rid of the video
+  //---new make video full screen
+  videoWidth = window.innerWidth;
+  videoHeight = window.innerHeight;
+
   ctx.drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, 0, 0);
   //draw black image
   ctx.fillStyle = "rgb(0,0,0)";
-  ctx.fillRect(0,0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   document.getElementById("stats").innerHTML = "";
   document.getElementById("warning").innerHTML =
@@ -341,7 +345,6 @@ async function renderPrediction() {
         //  Draw triangle
         drawPath(ctx, points, true);
         // drawingUtils.drawConnectors(ctx, landmarks, mpFaceMesh.FACEMESH_TESSELATION, { color: '#C0C0C070', lineWidth: 1 });
-
       }
       //draw the points
       // for (let i = 0; i < keypoints.length; i += 1) {
@@ -446,10 +449,6 @@ async function trackerMain() {
     // enable all mods without facetracker part
     return null;
   }
-
-  //---new make video full screen
-  videoWidth = window.innerWidth;
-  videoHeight = window.innerHeight;
 
   // height = width * aspect;
 
