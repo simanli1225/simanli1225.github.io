@@ -8,7 +8,6 @@ const touchStats = document.getElementById("touchstats");
  * Default contrlols configuration
  * @type {Object}
  */
-// command control
 const controls = {
   yawMultiplier: 2,
   pitchMultiplier: 1,
@@ -395,11 +394,11 @@ async function renderPrediction() {
       // pitchOptimized = pitch * parseFloat(controls.pitchMultiplier);
       // rollOptimized = roll * parseFloat(controls.rollMultiplier);
 
-      // if (window.modeTracker === "facetracker") {
-      //   window.yaw = yaw * parseFloat(controls.yawMultiplier);
-      //   window.pitch = pitch * parseFloat(controls.pitchMultiplier);
-      //   window.roll = roll * parseFloat(controls.rollMultiplier);
-      // }
+      if (window.modeTracker === "facetracker") {
+        window.yaw = yaw * parseFloat(controls.yawMultiplier);
+        window.pitch = pitch * parseFloat(controls.pitchMultiplier);
+        window.roll = roll * parseFloat(controls.rollMultiplier);
+      }
     });
   }
 
@@ -507,7 +506,7 @@ DecodeModule.then((m1DecodeModule) => {
 
 function Decode(yaw, pitch, roll) {
   if (m1Decode !== null && yaw !== null && pitch !== null && roll !== null) {
-    // m1Decode.setFilterSpeed(controls.filterSpeed);
+    m1Decode.setFilterSpeed(controls.filterSpeed);
     m1Decode.beginBuffer();
     const decoded = m1Decode.decode(yaw, pitch, roll);
     m1Decode.endBuffer();
