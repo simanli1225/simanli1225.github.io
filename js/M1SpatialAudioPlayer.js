@@ -229,8 +229,10 @@ async function setupCamera() {
       audio: false,
       video: {
         facingMode: "user",
-        width: mobile ? undefined : 640,
-        height: mobile ? undefined : 480,
+        // width: mobile ? undefined : 640,
+        // height: mobile ? undefined : 480,
+        width: mobile ? undefined : window.innerWidth,
+        height: mobile ? undefined : window.innerHeight,
       },
     });
     video.srcObject = stream;
@@ -466,7 +468,7 @@ async function trackerMain() {
   // FIXME: Need to use getElementsById
   const canvasContainer = document.querySelector(".canvas-wrapper");
   canvasContainer.style = `width: ${videoWidth}px; height: ${videoHeight}px`;
-  
+
   console.log("now the canvas videoWidth is" + videoWidth);
   console.log("now the canvas videoHeight is" + videoHeight);
 
