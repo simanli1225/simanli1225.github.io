@@ -219,6 +219,9 @@ let videoHeight;
 let video;
 let canvas;
 
+videoWidth = window.innerWidth;
+videoHeight = window.innerHeight;
+
 const mobile = isMobile();
 
 async function setupCamera() {
@@ -282,8 +285,7 @@ async function renderPrediction() {
 
   //get rid of the video
   //---new make video full screen
-  videoWidth = window.innerWidth;
-  videoHeight = window.innerHeight;
+
 
   ctx.drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, 0, 0);
   //draw black image
