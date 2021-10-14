@@ -466,6 +466,7 @@ async function trackerMain() {
   // FIXME: Need to use getElementsById
   const canvasContainer = document.querySelector(".canvas-wrapper");
   canvasContainer.style = `width: ${videoWidth}px; height: ${videoHeight}px`;
+  
   console.log("now the canvas videoWidth is" + videoWidth);
   console.log("now the canvas videoHeight is" + videoHeight);
 
