@@ -8,17 +8,18 @@ const touchStats = document.getElementById("touchstats");
  * Default contrlols configuration
  * @type {Object}
  */
-const controls = {
-  yawMultiplier: 2,
-  pitchMultiplier: 1,
-  rollMultiplier: 1,
-  FOV: 35,
-  filterSpeed: 0.9,
-  oneEuroFilterBeta: 0.06,
+// command control
+// const controls = {
+//   yawMultiplier: 2,
+//   pitchMultiplier: 1,
+//   rollMultiplier: 1,
+//   FOV: 35,
+//   filterSpeed: 0.9,
+//   oneEuroFilterBeta: 0.06,
 
-  nPoint: 468,
-};
-window.controls = controls;
+//   nPoint: 468,
+// };
+// window.controls = controls;
 
 // const audioFiles8 = [
 //   'audio/m1spatial/T1.ogg',
