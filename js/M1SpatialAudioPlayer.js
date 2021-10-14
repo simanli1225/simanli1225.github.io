@@ -237,10 +237,10 @@ async function setupCamera() {
       audio: false,
       video: {
         facingMode: "user",
-        // width: mobile ? undefined : 640,
-        // height: mobile ? undefined : 480,
-        width: mobile ? undefined : videoWidth2,
-        height: mobile ? undefined : videoHeight2,
+        width: mobile ? undefined : 640,
+        height: mobile ? undefined : 480,
+        // width: mobile ? undefined : videoWidth2,
+        // height: mobile ? undefined : videoHeight2,
       },
     });
     video.srcObject = stream;
