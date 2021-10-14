@@ -219,8 +219,8 @@ let videoHeight;
 let video;
 let canvas;
 
-videoWidth = window.innerWidth;
-videoHeight = window.innerHeight;
+// videoWidth = window.innerWidth;
+// videoHeight = window.innerHeight;
 
 const mobile = isMobile();
 
