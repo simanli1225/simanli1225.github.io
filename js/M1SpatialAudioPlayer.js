@@ -219,17 +219,17 @@ let videoHeight;
 let video;
 let canvas;
 
-//get the video w/h 
-let videoWidth2;
-let videoHeight2;
+//get the video w/h
+let videoWidth2 = window.innerWidth;
+let videoHeight2 = window.innerHeight;
 
 const mobile = isMobile();
 
-//get the video w/h 
-document.addEventListener("DOMContentLoaded", function () {
-  videoWidth2 = window.innerWidth;
-  videoHeight2 = window.innerHeight;
-});
+//get the video w/h
+// document.addEventListener("DOMContentLoaded", function () {
+//   videoWidth2 = window.innerWidth;
+//   videoHeight2 = window.innerHeight;
+// });
 async function setupCamera() {
   video = document.getElementById("video");
   try {
