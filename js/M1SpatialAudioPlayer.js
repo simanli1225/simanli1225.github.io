@@ -219,28 +219,21 @@ let videoHeight;
 let video;
 let canvas;
 
-//get the video w/h
-let videoWidth2 = window.innerWidth;
-let videoHeight2 = window.innerHeight;
-
 const mobile = isMobile();
-
-//get the video w/h
-// document.addEventListener("DOMContentLoaded", function () {
-//   videoWidth2 = window.innerWidth;
-//   videoHeight2 = window.innerHeight;
-// });
+// width: mobile ? undefined : window.innerWidth;
+// height: mobile ? undefined : window.innerHeight,
+// width: mobile ? undefined : 640,
+// height: mobile ? undefined : 480,
 async function setupCamera() {
   video = document.getElementById("video");
+
   try {
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
         facingMode: "user",
-        width: mobile ? undefined : 640,
-        height: mobile ? undefined : 480,
-        // width: mobile ? undefined : videoWidth2,
-        // height: mobile ? undefined : videoHeight2,
+        width: mobile ? undefined : 1040,
+        height: mobile ? undefined : 880,
       },
     });
     video.srcObject = stream;
