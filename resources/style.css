@@ -335,6 +335,7 @@ body {
   left: 0;
   top: 0;
   aspect-ratio: auto 1600 / 1200 !important;
+  transform: rotateY(180deg);
 }
 #warning {
   z-index: 9999;

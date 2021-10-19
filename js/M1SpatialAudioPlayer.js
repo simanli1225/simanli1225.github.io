@@ -480,8 +480,8 @@ async function trackerMain() {
   // NOTE: This takes the first element by CSS class
   // and after some changes on the HTML page this code can be broken
   // FIXME: Need to use getElementsById
-  const canvasContainer = document.querySelector(".canvas-wrapper");
-  canvasContainer.style = `width: ${videoWidth}px; height: ${videoHeight}px`;
+  // const canvasContainer = document.querySelector(".canvas-wrapper");
+  // canvasContainer.style = `width: ${videoWidth}px; height: ${videoHeight}px`;
 
   ctx = canvas.getContext("2d");
   ctx.translate(canvas.width, 0);
