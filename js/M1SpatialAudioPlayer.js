@@ -263,10 +263,23 @@ async function setupCamera() {
 
   return true;
 }
+let videoWidth2 = window.innerWidth;
+let videoWidth2 = window.innerHeight;
 
 async function renderPrediction() {
   const predictions = await model.estimateFaces(video);
   const warningMessage = "WARNING: UNABLE TO TRACK FACE!";
+  // ctx.drawImage(
+  //   video,
+  //   0,
+  //   0,
+  //   videoWidth,
+  //   videoHeight,
+  //   0,
+  //   0,
+  //   canvas.width,
+  //   canvas.height
+  // );
   ctx.drawImage(
     video,
     0,
@@ -275,8 +288,8 @@ async function renderPrediction() {
     videoHeight,
     0,
     0,
-    canvas.width,
-    canvas.height
+    videoWidth2,
+    videoWidth2
   );
 
   //get rid of the video
@@ -341,7 +354,6 @@ async function renderPrediction() {
         //  Draw triangle
         drawPath(ctx, points, true);
         // drawingUtils.drawConnectors(ctx, landmarks, mpFaceMesh.FACEMESH_TESSELATION, { color: '#C0C0C070', lineWidth: 1 });
-
       }
       //draw the points
       // for (let i = 0; i < keypoints.length; i += 1) {
