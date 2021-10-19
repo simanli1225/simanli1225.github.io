@@ -484,9 +484,9 @@ async function trackerMain() {
   // canvasContainer.style = `width: ${videoWidth}px; height: ${videoHeight}px`;
 
   ctx = canvas.getContext("2d");
-  ctx.translate(canvas.width, 0);
+  // ctx.translate(canvas.width, 0);
   // ctx.scale(-1, 1);
-  ctx.scale(2, 2);
+  // ctx.scale(2, 2);
 
   ctx.fillStyle = "#F5339E";
   ctx.strokeStyle = "#F5339E";
