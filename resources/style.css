@@ -323,18 +323,23 @@ body {
   z-index: -1;
 }
 /* try to adjust the video component */
-#video{
-  width:100vw !important;
-  top:0;
-  left:0;
+#video {
+  width: 100vw !important;
+  top: 0;
+  left: 0;
 }
-#output{
-  width:100vw !important;
-  height:auto;
-  display:fixed;
-  left:0;
-  top:0;
+#output {
+  width: 100vw !important;
+  height: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  aspect-ratio: auto 1600 / 1200 !important;
 }
-#warning{
-  z-index:9999;
+#warning {
+  z-index: 9999;
+}
+.canvas-wrapper {
+  width: 100vw;
+  height: 100vh;
 }
