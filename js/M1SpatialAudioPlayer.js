@@ -264,7 +264,7 @@ async function setupCamera() {
   return true;
 }
 let videoWidth2 = window.innerWidth;
-let videoWidth2 = window.innerHeight;
+let videoHeight2 = window.innerHeight;
 
 async function renderPrediction() {
   const predictions = await model.estimateFaces(video);
@@ -289,7 +289,7 @@ async function renderPrediction() {
     0,
     0,
     videoWidth2,
-    videoWidth2
+    videoHeight2
   );
 
   //get rid of the video
