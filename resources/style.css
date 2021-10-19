@@ -322,3 +322,9 @@ body {
   height: 100%;
   z-index: -1;
 }
+/* try to adjust the video component */
+#video{
+  width:100vw;
+  top:0;
+  left:0;
+}
