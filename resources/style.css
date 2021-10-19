@@ -324,7 +324,7 @@ body {
 }
 /* try to adjust the video component */
 #video{
-  width:100vw;
+  width:100vw !important;
   top:0;
   left:0;
 }
