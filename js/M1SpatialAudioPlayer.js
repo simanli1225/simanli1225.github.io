@@ -283,7 +283,7 @@ async function renderPrediction() {
   // ctx.drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, 0, 0);
   //draw black image
 
-  ctx.fillStyle = "rgb(0,200,0)";
+  ctx.fillStyle = "rgb(0,0,102)";
   ctx.fillRect(0,0, canvas.width, canvas.height);
 
   document.getElementById("stats").innerHTML = "";
