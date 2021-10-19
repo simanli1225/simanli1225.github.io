@@ -172,7 +172,6 @@ function selectTracker() {
       document.getElementById("warning").innerHTML =
         window.modeTracker === "device" ? warningMessage : "";
     }
-
     gimbal.enable();
   }
 }

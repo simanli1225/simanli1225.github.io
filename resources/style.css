@@ -328,3 +328,13 @@ body {
   top:0;
   left:0;
 }
+#output{
+  width:100vw !important;
+  height:auto;
+  display:fixed;
+  left:0;
+  top:0;
+}
+#warning{
+  z-index:9999;
+}
