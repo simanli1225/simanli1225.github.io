@@ -263,8 +263,11 @@ async function setupCamera() {
 
   return true;
 }
-let videoWidth2 = window.innerWidth;
-let videoHeight2 = window.innerHeight;
+videoWidth = window.innerWidth;
+videoHeight = window.innerHeight;
+
+// let videoWidth2 = window.innerWidth;
+// let videoHeight2 = window.innerHeight;
 
 async function renderPrediction() {
   const predictions = await model.estimateFaces(video);
@@ -281,18 +284,18 @@ async function renderPrediction() {
   //   canvas.height
   // );
 
-  // ctx.drawImage(
-  //   video,
-  //   0,
-  //   0,
-  //   videoWidth,
-  //   videoHeight,
-  //   0,
-  //   0,
-  //   videoWidth2,
-  //   videoHeight2
-  // );
-  ctx.drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, 1920, 1200);
+  ctx.drawImage(
+    video,
+    0,
+    0,
+    videoWidth,
+    videoHeight,
+    0,
+    0,
+    videoWidth,
+    videoHeight
+  );
+  // ctx.drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, 1920, 1200);
 
   //get rid of the video
   // ctx.drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, 0, 0);
@@ -462,19 +465,17 @@ async function trackerMain() {
   }
 
   //---new make video full screen
-  videoWidth = window.innerWidth;
-  videoHeight = window.innerHeight;
 
   // height = width * aspect;
 
   // videoWidth = video.videoWidth;
   // videoHeight = video.videoHeight;
-  video.width = videoWidth;
-  video.height = videoHeight;
+  // video.width = videoWidth;
+  // video.height = videoHeight;
 
   canvas = document.getElementById("output");
-  canvas.width = videoWidth;
-  canvas.height = videoHeight;
+  // canvas.width = videoWidth;
+  // canvas.height = videoHeight;
 
   // NOTE: This takes the first element by CSS class
   // and after some changes on the HTML page this code can be broken
