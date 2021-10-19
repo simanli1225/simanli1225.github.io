@@ -280,17 +280,19 @@ async function renderPrediction() {
   //   canvas.width,
   //   canvas.height
   // );
-  ctx.drawImage(
-    video,
-    0,
-    0,
-    videoWidth,
-    videoHeight,
-    0,
-    0,
-    videoWidth2,
-    videoHeight2
-  );
+
+  // ctx.drawImage(
+  //   video,
+  //   0,
+  //   0,
+  //   videoWidth,
+  //   videoHeight,
+  //   0,
+  //   0,
+  //   videoWidth2,
+  //   videoHeight2
+  // );
+  ctx.drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, 1920, 1200);
 
   //get rid of the video
   // ctx.drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, 0, 0);
