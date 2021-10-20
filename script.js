@@ -39,6 +39,6 @@ function info_open() {
 }
 function info_close() {
     window.location.href =
-      "index.html";
+      "main.html";
   }
   
