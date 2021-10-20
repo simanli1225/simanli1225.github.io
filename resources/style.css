@@ -399,7 +399,7 @@ body {
     right: 0;
     bottom: 0;
     margin: 0 auto;
-    aspect-ratio: auto 1600 / 1200 !important;
+    /* aspect-ratio: auto 1600 / 1200 !important; */
     /* aspect-ratio: auto 1000 / 1000 !important; */
     transform: rotateY(180deg);
 }
