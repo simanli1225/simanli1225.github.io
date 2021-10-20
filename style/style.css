@@ -227,6 +227,45 @@ body {
   padding-left: 10px;
 }
 
+.square_div {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 50px;
+}
+
+.square_gap {
+  height: 10px;
+}
+
+.square_player_div {
+  width: 600px;
+  height: 37px;
+  border: 2px solid white;
+  margin-top: 10px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.square_text {
+  font-size: 24px;
+  width: 600px;
+  color: white;
+  font-family: suisse_reg;
+}
+
+#play_button_id {
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+
+#play_button_id:hover {
+  color: black;
+  background-color: white;
+  border: 2px solid white;
+  z-index: 99999;
+}
+
 @media only screen and (max-width: 1440px) {
   .title_font_lg {
     font-size: 13.5vw;

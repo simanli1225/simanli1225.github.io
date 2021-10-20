@@ -29,7 +29,7 @@ $listen_icon_padding: 0.26 * $main-title-l 1.04 * $main-title-l 0.25 *
 
 //----the info page---------//
 //in 1920      1920-1668   /2 =
-$info_main_center_padding:$legal-padding-s-lr;
+$info_main_center_padding: $legal-padding-s-lr;
 
 //---------------- 1440px--ms middle screen--------------//
 //--------legal------------//
@@ -47,7 +47,7 @@ $ms-main-btn-text: 0.3 * $main-title-l;
 $ms-main-btn-gap-padding: 1vw;
 $ms-main-title-lineHeight: 0.89 * $ms-main-title-l;
 
-$ms-info_icon_padding:2.9vw 11.2995vw 2.9vw 11.2995vw;
+$ms-info_icon_padding: 2.9vw 11.2995vw 2.9vw 11.2995vw;
 $ms-listen_icon_padding: 2.9vw 13vw 2.9vw 13vw;
 
 //in 1440   1440-1368 ---  2.5vw
@@ -57,7 +57,7 @@ $pdv-main-title-l: 20vw;
 $pdv-title-lineHeight: 0.92 * $pdv-main-title-l;
 //big title font size
 // $pdv-main-btn-text: 0.3 * $pdv-main-title-l;
-$pdv-main-btn-text:48px;
+$pdv-main-btn-text: 48px;
 $pdv-info_icon_padding: 0.16 * $pdv-main-title-l 1.1 * $pdv-main-title-l 0.16 *
   $pdv-main-title-l 1.1 * $pdv-main-title-l;
 
@@ -72,7 +72,7 @@ body {
   background-color: black;
   margin: 0;
 }
-.container_con{
+.container_con {
   margin: 0;
   position: absolute;
   top: 50%;
@@ -80,11 +80,11 @@ body {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-.center_vh_inside{
+.center_vh_inside {
   text-align: center;
 }
-#info-small-screen-close-id{
-  display:none;
+#info-small-screen-close-id {
+  display: none;
 }
 #desktop_menu {
   display: flex;
@@ -150,7 +150,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  z-index:10000;
+  z-index: 10000;
 }
 .info_main_center {
   position: absolute;
@@ -189,7 +189,7 @@ body {
   margin-right: $main-btn-gap-padding;
   padding: $listen_icon_padding;
 }
-#again_icon{
+#again_icon {
   // padding: $listen_icon_padding;
   padding: 2.9vw 10vw 2.9vw 10vw;
 }
@@ -232,16 +232,51 @@ body {
   padding-left: 0.5vw;
 }
 //listen again page-- icons padding
-#fb_icon_id{
-padding-bottom:3px;
+#fb_icon_id {
+  padding-bottom: 3px;
 }
-#link_icon_id{
-  padding-bottom:7px;
+#link_icon_id {
+  padding-bottom: 7px;
 }
-.again_icons{
-  padding-left:10px;
+.again_icons {
+  padding-left: 10px;
 }
+// page player button
+.square_div {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom:50px;
+}
+.square_gap{
+  height: 10px;
+}
+.square_player_div {
+  width: 600px;
+  height: 37px;
+  border: 2px solid white;
+  margin-top: 10px;
+  text-align: center;
+  margin: 0 auto;
+}
+.square_text {
+  font-size: 24px;
+  width:600px;
+  color: white;
+  font-family: suisse_reg;
+  // width: 80%;
+  // margin: 0;
+}
+#play_button_id{
+  transition-duration: 0.4s;
 
+}
+#play_button_id:hover{
+  color: black;
+  background-color: white;
+  border: 2px solid white;
+  z-index:99999;
+}
 //---------------- media query----------------//
 //---------------- 1440px----------------//
 @media only screen and (max-width: 1440px) {
@@ -288,7 +323,6 @@ padding-bottom:3px;
   .info_main_center {
     padding-left: $ms-info_main_center_padding;
   }
-
 }
 //---------------- 1024px----------------//
 @media only screen and (max-width: 1024px) {
@@ -308,16 +342,16 @@ padding-bottom:3px;
     display: block;
     height: 10vh;
   }
-  #info-small-screen-close-id{
-    position:fixed;
-    display:block;
-    right:$ms-legal-padding-s-lr;
-    top:18vw;
+  #info-small-screen-close-id {
+    position: fixed;
+    display: block;
+    right: $ms-legal-padding-s-lr;
+    top: 18vw;
     cursor: pointer;
-    z-index:1000;
+    z-index: 1000;
   }
-  #again_icons_div{
-    padding-top:32vw;
+  #again_icons_div {
+    padding-top: 32vw;
   }
 }
 //---------------- 768px----------------//
@@ -347,7 +381,7 @@ padding-bottom:3px;
     margin-left: $pdv-main-btn-gap-padding;
     padding: $pdv-listen_icon_padding;
   }
-  #again_icon{
+  #again_icon {
     // padding: $pdv-listen_icon_padding;
   }
   #title_mo_line2,
@@ -365,8 +399,8 @@ padding-bottom:3px;
     padding-top: 40vh;
     padding-left: $ms-info_main_center_padding;
   }
-  #again_icons_div{
-    padding-top:45vw;
+  #again_icons_div {
+    padding-top: 45vw;
   }
 }
 //---------------- 375px----------------//
@@ -377,10 +411,10 @@ padding-bottom:3px;
   .info_text {
     font-size: 28px;
   }
-  .button_icon{
-    font-size:28px;
+  .button_icon {
+    font-size: 28px;
   }
-  #again_icons_div{
-    padding-top:50vw;
+  #again_icons_div {
+    padding-top: 50vw;
   }
 }
