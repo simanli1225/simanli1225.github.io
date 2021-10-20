@@ -41,4 +41,7 @@ function info_close() {
     window.location.href =
       "main.html";
   }
-  
+  function music_open() {
+    window.location.href =
+      "M1SpatialAudioPlayer.html";
+  }
