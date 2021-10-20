@@ -387,21 +387,14 @@ body {
     left: 0;
 }
 
-#output {
-    /* width: 100vw; */
-    width: 70vw;
-    height: auto;
-    /* width: 1000px;
-    height: 1000px; */
+.output_canvas {
     position: fixed;
-    left: 0;
+    /*left: 500px;*/
     top: 0;
     right: 0;
     bottom: 0;
     margin: 0 auto;
-    /* aspect-ratio: auto 1600 / 1200 !important; */
-    /* aspect-ratio: auto 1000 / 1000 !important; */
-    transform: rotateY(180deg);
+
 }
 
 #warning {
