@@ -34,14 +34,12 @@ function appendHtml(el, str) {
 console.log("hello");
 
 function info_open() {
-  window.location.href =
-    "info.html";
+  window.location.href = "info.html";
 }
 function info_close() {
-    window.location.href =
-      "main.html";
-  }
-  function music_open() {
-    window.location.href =
-      "M1SpatialAudioPlayer.html";
-  }
+  window.location.href = "main.html";
+}
+function music_open() {
+  console.log("hey");
+  window.location.href = "M1SpatialAudioPlayer.html";
+}
