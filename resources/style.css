@@ -388,7 +388,9 @@ body {
 }
 
 #output {
-    width: 100vw;
+    /* width: 100vw; */
+    width: 90vw;
+
     height: 110vh;
     position: fixed;
     left: 0;

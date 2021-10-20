@@ -284,6 +284,17 @@ async function renderPrediction() {
   //   canvas.height
   // );
 
+  // ctx.drawImage(
+  //   video,
+  //   0,
+  //   0,
+  //   videoWidth,
+  //   videoHeight,
+  //   0,
+  //   0,
+  //   videoWidth,
+  //   videoHeight
+  // );
   ctx.drawImage(
     video,
     0,
@@ -292,8 +303,8 @@ async function renderPrediction() {
     videoHeight,
     0,
     0,
-    videoWidth,
-    videoHeight
+    0,
+    0
   );
   // ctx.drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, 1920, 1200);
 
@@ -301,8 +312,8 @@ async function renderPrediction() {
   // ctx.drawImage(video, 0, 0, videoWidth, videoHeight, 0, 0, 0, 0);
   //draw black image
 
-  // ctx.fillStyle = "rgb(0,0,102)";
-  // ctx.fillRect(0,0, canvas.width, canvas.height);
+  ctx.fillStyle = "rgb(0,0,0)";
+  ctx.fillRect(0,0, canvas.width, canvas.height);
 
   document.getElementById("stats").innerHTML = "";
   document.getElementById("warning").innerHTML =
