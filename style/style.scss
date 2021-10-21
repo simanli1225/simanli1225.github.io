@@ -305,9 +305,6 @@ a {
       border-style: double;
       border-width: 0px 0 0px 20px;
     }
-    &:focus + label {
-      // box-shadow: 0 0 5px lightblue;
-    }
   }
 }
 //---------------- media query----------------//
@@ -413,9 +410,6 @@ a {
   #main_listen_icon {
     margin-left: $pdv-main-btn-gap-padding;
     padding: $pdv-listen_icon_padding;
-  }
-  #again_icon {
-    // padding: $pdv-listen_icon_padding;
   }
   #title_mo_line2,
   #title_mo_line3 {
