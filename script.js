@@ -1,11 +1,13 @@
+var playBtn = document.getElementById("play_button_id"),
+
 var legal = `<div class="legal">
 <div id="legal_top">
   <img id="icon_logo" src="source/logo.svg" alt="" />
 </div>
 <div id="legal_bottom">
   <div class="legal_bottom_cl" id="legal_bottom_left">
-    <p class="legal-item clickable" id="legal-item_id_1">PRIVACY POLICY</p>
-    <p class="legal-item clickable" id="legal-item_id_2">TERMS OF SERVICE</p>
+    <p id="legal-item_id_1" class="legal-item clickable"><a href="https://www.squarespace.com/privacy" target="_blank" >PRIVACY POLICY</a></p>
+    <p id="legal-item_id_2" class="legal-item clickable"><a href="https://www.squarespace.com/terms-of-service" target="_blank" >TERMS OF SERVICE</a></p>
   </div>
   <div class="legal_bottom_cl" id="legal_bottom_right">
     <img
@@ -14,12 +16,12 @@ var legal = `<div class="legal">
       src="source/sound.svg"
       alt=""
     />
-    <img
+    <a href="https://www.squarespace.com/"><img
       class="legal-item clickable"
       id="legal-item_id_sqlogo"
       src="source/sq_logo.svg"
       alt=""
-    />
+    /></a>
   </div>
 </div>
 </div>`;
@@ -42,4 +44,24 @@ function info_close() {
 function music_open() {
   console.log("hey");
   window.location.href = "M1SpatialAudioPlayer.html";
+}
+let i=0;
+function playButton(){
+  i++;
+  if(!(i & 1)){
+    // i is odd
+    Player.stop();
+    console.log("now stop music");
+  }else{
+    // i is even
+    Player.play();
+    console.log("now play music");
+
+  }
+  // Player.play();
+  // <button onclick="Player.play()" class="button">Play</button>
+  {/* <button onclick="Player.stop()" class="button">Stop</button> */}
+  // playBtn.innerHTML = tl.paused() ? "play" : "pause";
+  // playBtn.innerHTML = "pause";
+
 }

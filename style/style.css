@@ -78,6 +78,13 @@ body {
   vertical-align: middle;
   padding-left: 12px;
   font-family: suisse_med;
+  color: white;
+  text-decoration: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }
 
 #legal_bottom_right {
@@ -264,6 +271,30 @@ body {
   background-color: white;
   border: 2px solid white;
   z-index: 99999;
+}
+
+.playpause label {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 0;
+  height: 21px;
+  border-color: transparent transparent transparent white;
+  -webkit-transition: 100ms all ease;
+  transition: 100ms all ease;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 10.5px 0 10.5px 15px;
+}
+
+.playpause input[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+
+.playpause input[type="checkbox"]:checked + label {
+  border-style: double;
+  border-width: 0px 0 0px 20px;
 }
 
 @media only screen and (max-width: 1440px) {
