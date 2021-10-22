@@ -283,7 +283,7 @@ videoHeight = window.innerHeight;
 
 async function renderPrediction() {
   const predictions = await model.estimateFaces(video);
-  const warningMessage = "";
+  const warningMessage = "WARNING: UNABLE TO TRACK FACE!";
   // const warningMessage = "WARNING: UNABLE TO TRACK FACE!";
   // ctx.drawImage(
   //   video,
