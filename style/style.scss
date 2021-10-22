@@ -253,6 +253,7 @@ a {
   text-align: center;
   position: fixed;
   bottom: 50px;
+  z-index: 99999;
 }
 .square_gap {
   height: 10px;
@@ -305,6 +306,12 @@ a {
   border-width: 0px 0 0px 20px;
   border-style: double;
   transition-duration: 0.4s;
+}
+.square_content{
+  height: 37px;
+  display:table-cell;
+  vertical-align:middle;   
+  width:600px;
 }
 
 //---------------- media query----------------//
