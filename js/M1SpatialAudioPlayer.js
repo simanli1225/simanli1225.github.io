@@ -511,12 +511,12 @@ async function trackerMain() {
   // canvasContainer.style = `width: ${videoWidth}px; height: ${videoHeight}px`;
 
   ctx = canvas.getContext("2d");
-  ctx.translate(
-    document.documentElement.clientWidth,
-    -document.documentElement.clientHeight / 3
-  );
-  ctx.scale(-1, 1);
-  ctx.scale(2, 2);
+//   ctx.translate(
+//     document.documentElement.clientWidth,
+//     -document.documentElement.clientHeight / 3
+//   );
+//   ctx.scale(-1, 1);
+//   ctx.scale(2, 2);
 
   ctx.fillStyle = "black";
   ctx.strokeStyle = "#F5339E";
