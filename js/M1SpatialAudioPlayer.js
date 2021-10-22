@@ -842,14 +842,38 @@ playButtonVar.addEventListener(
   function (event) {
     // highlight the mouseenter target
     console.log("mouseIn");
-    document.getElementById("playButton_labelID").style.border-color="transparent transparent transparent pink";
+    document.getElementById("playButton_labelID").style.borderColor =
+      "transparent transparent transparent black";
   },
   false
 );
 playButtonVar.addEventListener(
-  "mouseover",
+  "mouseleave",
   function (event) {
     console.log("mouseOut");
+    document.getElementById("playButton_labelID").style.borderColor =
+      "transparent transparent transparent white";
   },
   false
 );
+
+function buttonChange() {
+  // no ';' here
+  // var elem = document.getElementById("myButton1");
+  var elem = document.getElementById("play_btn_inner");
+  console.log(elem.innerHTML);
+  if (elem.innerHTML == "PLAY") {
+    elem.innerHTML = "PAUSE";
+    Player.play();
+    console.log("now play music");
+    document.getElementById("playButton_labelID").classList.add("pause");
+    document.getElementById("playButton_labelID").classList.remove("playpause");
+
+} else {
+    elem.innerHTML = "PLAY";
+    Player.stop();
+    console.log("now stop music");
+    document.getElementById("playButton_labelID").classList.remove("pause");
+    document.getElementById("playButton_labelID").classList.add("playpause");
+  }
+}
