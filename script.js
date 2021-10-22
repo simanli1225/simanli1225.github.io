@@ -25,7 +25,7 @@ let legal = `<div class="legal">
 </div>`;
 appendHtml(document.body, legal);
 function appendHtml(el, str) {
-let div = document.createElement("div"); //container to append to
+  let div = document.createElement("div"); //container to append to
   div.innerHTML = str;
   while (div.children.length > 0) {
     el.appendChild(div.children[0]);
@@ -43,16 +43,33 @@ function music_open() {
   console.log("hey");
   window.location.href = "M1SpatialAudioPlayer.html";
 }
-let i=0;
-function playButton(){
-  i++;
-  if(!(i & 1)){
+let i = 0;
+function playButton() {
+  console.log("click");
+  i = i + 1;
+  console.log(i);
+  if (!(i & 1)) {
     // i is odd
     Player.stop();
     console.log("now stop music");
-  }else{
+  } else {
     // i is even
     Player.play();
     console.log("now play music");
+  }
+}
+function buttonChange() {
+  // no ';' here
+  // var elem = document.getElementById("myButton1");
+  var elem = document.getElementById("play_btn_inner");
+  console.log(elem.innerHTML);
+  if (elem.innerHTML == "PLAY") {
+    elem.innerHTML = "PAUSE";
+    Player.play();
+    console.log("now play music");
+  } else {
+    elem.innerHTML = "PLAY";
+    Player.stop();
+    console.log("now stop music");
   }
 }

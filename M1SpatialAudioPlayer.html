@@ -255,15 +255,25 @@
         <p class="info_text square_text">DAILY LIFE - ELI KESZLER</p>
       </div>
       <div class="square_gap"></div>
-      <div class="square_player_div clickable square_text" onclick="playButton()" id="play_button_id"><div class="playpause" style="display:inline-block;padding-right:10px">
-        <input type="checkbox" value="None" id="playpause" name="check" />
-        <label for="playpause" tabindex=1></label>
-      </div>PLAY</div>
+      <div
+        class="square_player_div clickable square_text"
+        onclick="buttonChange()"
+        id="play_button_id"
+      >
+        <div
+          class="playpause"
+          style="display: inline-block; padding-right: 10px"
+        >
+          <!-- <input type="checkbox" value="play_button_id" id="playpause" name="check" />
+          <label id="playButton_labelID" for="playpause" tabindex="1"></label> -->
+        </div>
+        <p id="play_btn_inner"style="display: inline-block;margin:0;">PLAY</p>
+        
+      </div>
     </div>
+    <!-- <input onclick="change()" type="button" value="Open Curtain" id="myButton1"></input> -->
     <script src="js/M1SpatialAudioPlayer.js"></script>
     <!-- add the header and footer -->
     <script src="script.js"></script>
-
   </body>
-  
 </html>
