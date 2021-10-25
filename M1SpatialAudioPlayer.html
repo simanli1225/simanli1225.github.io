@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="utf-8" http-equiv="encoding" />
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="utf-8" http-equiv="encoding"/>
 
     <!-- Loading / Progress Bar -->
-    <link rel="preload" href="img/spinner.svg" as="image" />
+    <link rel="preload" href="img/spinner.svg" as="image"/>
 
     <!--
         Bose AR SDK supplied from https://github.com/zakaton/Bose-Frames-Web-SDK
@@ -34,159 +34,159 @@
 
     <script src="js/Mach1SoundPlayer.js"></script>
     <script src="js/Mach1Decode.js"></script>
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/style.css"/>
 
     <!-- start of the new libs -->
     <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.6/control_utils.css"
-      crossorigin="anonymous"
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.6/control_utils.css"
+            crossorigin="anonymous"
     />
     <script
-      src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3/camera_utils.js"
-      crossorigin="anonymous"
+            src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3/camera_utils.js"
+            crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.6/control_utils.js"
-      crossorigin="anonymous"
+            src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.6/control_utils.js"
+            crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3/drawing_utils.js"
-      crossorigin="anonymous"
+            src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3/drawing_utils.js"
+            crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/face_mesh.js"
-      crossorigin="anonymous"
+            src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/face_mesh.js"
+            crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.1/drawing_utils.js"
-      crossorigin="anonymous"
+            src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.1/drawing_utils.js"
+            crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic@0.1/holistic.js"
-      crossorigin="anonymous"
+            src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic@0.1/holistic.js"
+            crossorigin="anonymous"
     ></script>
 
     <!-- end of the new libs -->
-    <link rel="stylesheet" href="resources/style.css" />
-  </head>
-  <body>
-    <div id="main" style="display: none">
-      <div
-        class="containerOuter"
-        style="position: absolute; top: 20px; left: 30px"
-      >
+    <link rel="stylesheet" href="resources/style.css"/>
+</head>
+<body>
+<div id="main" style="display: none">
+    <div
+            class="containerOuter"
+            style="position: absolute; top: 20px; left: 30px"
+    >
         <div class="containerInner" id="selected_id" style="min-height: 190px">
-          <input
-            type="radio"
-            name="mode"
-            id="radio3"
-            class="hidden"
-            value="touch"
-            onclick="selectTracker()"
-          />
-          <label class="entry" for="radio3">
-            <div class="circle"></div>
-            <div class="entry-label">Touch</div>
-          </label>
+            <input
+                    type="radio"
+                    name="mode"
+                    id="radio3"
+                    class="hidden"
+                    value="touch"
+                    onclick="selectTracker()"
+            />
+            <label class="entry" for="radio3">
+                <div class="circle"></div>
+                <div class="entry-label">Touch</div>
+            </label>
 
-          <input
-            type="radio"
-            name="mode"
-            id="radio2"
-            class="hidden"
-            value="device"
-            onclick="selectTracker()"
-          />
-          <label class="entry" for="radio2">
-            <div class="circle"></div>
-            <div class="entry-label">Device</div>
-          </label>
+            <input
+                    type="radio"
+                    name="mode"
+                    id="radio2"
+                    class="hidden"
+                    value="device"
+                    onclick="selectTracker()"
+            />
+            <label class="entry" for="radio2">
+                <div class="circle"></div>
+                <div class="entry-label">Device</div>
+            </label>
 
-          <input
-            type="radio"
-            name="mode"
-            id="radio1"
-            class="hidden"
-            checked="checked"
-            value="facetracker"
-            onclick="selectTracker()"
-          />
-          <label class="entry" for="radio1">
-            <div class="circle"></div>
-            <div class="entry-label">Facetracker</div>
-          </label>
+            <input
+                    type="radio"
+                    name="mode"
+                    id="radio1"
+                    class="hidden"
+                    checked="checked"
+                    value="facetracker"
+                    onclick="selectTracker()"
+            />
+            <label class="entry" for="radio1">
+                <div class="circle"></div>
+                <div class="entry-label">Facetracker</div>
+            </label>
 
-          <input
-            type="radio"
-            name="mode"
-            id="radio4"
-            class="hidden"
-            value="bosear"
-            onclick="selectTracker()"
-          />
-          <label class="entry" for="radio4">
-            <div class="circle"></div>
-            <div class="entry-label" style="margin-top: -3px">
-              BoseAR&nbsp;<bose-ar-device></bose-ar-device>
-            </div>
-          </label>
+            <input
+                    type="radio"
+                    name="mode"
+                    id="radio4"
+                    class="hidden"
+                    value="bosear"
+                    onclick="selectTracker()"
+            />
+            <label class="entry" for="radio4">
+                <div class="circle"></div>
+                <div class="entry-label" style="margin-top: -3px">
+                    BoseAR&nbsp;<bose-ar-device></bose-ar-device>
+                </div>
+            </label>
 
-          <div class="highlight"></div>
-          <div class="overlay"></div>
+            <div class="highlight"></div>
+            <div class="overlay"></div>
         </div>
-      </div>
-      <svg width="0" height="0" viewBox="0 0 40 190">
+    </div>
+    <svg width="0" height="0" viewBox="0 0 40 190">
         <defs>
-          <mask id="holes">
-            <rect x="0" y="0" width="100" height="140" fill="white" />
-            <circle r="12" cx="20" cy="20" fill="black" />
-            <circle r="12" cx="20" cy="70" fill="black" />
-            <circle r="12" cx="20" cy="120" fill="black" />
-            <circle r="12" cx="20" cy="170" fill="black" />
-          </mask>
+            <mask id="holes">
+                <rect x="0" y="0" width="100" height="140" fill="white"/>
+                <circle r="12" cx="20" cy="20" fill="black"/>
+                <circle r="12" cx="20" cy="70" fill="black"/>
+                <circle r="12" cx="20" cy="120" fill="black"/>
+                <circle r="12" cx="20" cy="170" fill="black"/>
+            </mask>
         </defs>
-      </svg>
-      <div
-        class="containerOuter"
-        style="position: absolute; top: 20px; left: 20px"
-      >
+    </svg>
+    <div
+            class="containerOuter"
+            style="position: absolute; top: 20px; left: 20px"
+    >
         <!-- <div class="containerInner">
           <button onclick="Player.play()" class="button">Play</button>
           <button onclick="Player.stop()" class="button">Stop</button>
           <button onclick="DisplayDebug()" class="button">Debug</button>
         </div> -->
-      </div>
-      <div
-        id="bosearstats"
-        class="containerOuter"
-        style="display: none; position: absolute; top: 20px; left: 450px"
-      >
+    </div>
+    <div
+            id="bosearstats"
+            class="containerOuter"
+            style="display: none; position: absolute; top: 20px; left: 450px"
+    >
         <div class="containerInner">
-          <form id="Rotation">
-            <h3>Rotation</h3>
-            <select id="boseRate" size="5" oninput="enableBoseAR()">
-              <option selected value="0">disabled</option>
-              <option value="20">very fast (20ms)</option>
-              <option value="40">fast (40ms)</option>
-              <option value="80">normal (80ms)</option>
-              <option value="160">slow (160ms)</option>
-            </select>
-            <br />
-            <br />
-            <label for="rotationYaw">yaw&nbsp;&nbsp;</label>
-            <input id="rotationYaw" readonly size="2" /><br />
-            <label for="rotationPitch">pitch</label>
-            <input id="rotationPitch" readonly size="2" /><br />
-            <label for="rotationRoll">roll&nbsp;</label>
-            <input id="rotationRoll" readonly size="2" />
-          </form>
+            <form id="Rotation">
+                <h3>Rotation</h3>
+                <select id="boseRate" size="5" oninput="enableBoseAR()">
+                    <option selected value="0">disabled</option>
+                    <option value="20">very fast (20ms)</option>
+                    <option value="40">fast (40ms)</option>
+                    <option value="80">normal (80ms)</option>
+                    <option value="160">slow (160ms)</option>
+                </select>
+                <br/>
+                <br/>
+                <label for="rotationYaw">yaw&nbsp;&nbsp;</label>
+                <input id="rotationYaw" readonly size="2"/><br/>
+                <label for="rotationPitch">pitch</label>
+                <input id="rotationPitch" readonly size="2"/><br/>
+                <label for="rotationRoll">roll&nbsp;</label>
+                <input id="rotationRoll" readonly size="2"/>
+            </form>
         </div>
-      </div>
-      <div
-        id="touchstats"
-        style="
+    </div>
+    <div
+            id="touchstats"
+            style="
           display: none;
           margin: 0;
           position: absolute;
@@ -196,32 +196,32 @@
           width: 50vw;
           height: auto;
         "
-      >
+    >
         <div class="background">
-          <img src="img/touch-compass.svg" style="width: 50vw; height: auto" />
+            <img src="img/touch-compass.svg" style="width: 50vw; height: auto"/>
         </div>
         <div class="cardBottom">
-          <div class="card">
-            <div class="txt">FRONT</div>
-          </div>
+            <div class="card">
+                <div class="txt">FRONT</div>
+            </div>
         </div>
-      </div>
-      <div class="container">
+    </div>
+    <div class="container">
         <div id="compassContainer">
-          <img id="compass" src="img/nav-compass.svg" />
+            <img id="compass" src="img/nav-compass.svg"/>
         </div>
         <div id="warning"></div>
-      </div>
-      <div
-        class="container"
-        style="position: absolute; bottom: 5px; right: 5px"
-      >
-        <div class="canvas-wrapper">
-          <canvas class="output_canvas" style="display: none;" width=“900” height=”600“></canvas>
-          <video
-            id="video"
-            playsinline
-            style="
+    </div>
+    <div
+            class="container"
+            style="position: absolute; bottom: 5px; right: 5px"
+    >
+        <div class="canvas-wrapper" id="canvasBox">
+            <canvas class="output_canvas" style="display: none;" width="900" height="600"></canvas>
+            <video
+                    id="video"
+                    playsinline
+                    style="
               -webkit-transform: scaleX(-1);
               transform: scaleX(-1);
               visibility: hidden;
@@ -231,49 +231,50 @@
               bottom: 5px;
               right: 5px;
             "
-          ></video>
+            ></video>
         </div>
-      </div>
-      <div class="container">
-        <div id="modelview" class="canvas-wrapper" style="display: none"></div>
-      </div>
     </div>
+    <div class="container">
+        <div id="modelview" class="canvas-wrapper" style="display: none"></div>
+    </div>
+</div>
 
-    <div id="stats" style="position: absolute; bottom: 5px; left: 5px"></div>
-    <div
-      id="info"
-      style="
+<div id="stats" style="position: absolute; bottom: 5px; left: 5px"></div>
+<div
+        id="info"
+        style="
         position: relative;
         margin: auto;
         margin-top: 41vh;
         text-align: center;
         font-size: 3em;
       "
-    ></div>
-    <div class="square_div">
-      <div class="square_player_div">
+></div>
+<div class="square_div">
+    <div class="square_player_div">
         <div class="square_content">
-          <p class="info_text square_text">DAILY LIFE - ELI KESZLER</p>
+            <p class="info_text square_text">DAILY LIFE - ELI KESZLER</p>
         </div>
-      </div>
-      <div class="square_gap"></div>
-      <div
-        class="square_player_div clickable square_text"
-        onclick="buttonChange()"
-        id="play_button_id"
-      >        
-    <div class="square_content">
-      <div class="playpause" id="playButton_labelID" style="padding-right:10px;">
-        <div type="checkbox"/>
-      </div>
     </div>
-    <p id="play_btn_inner"style="display: inline-block;margin:0;">PLAY</p>
-<div>
-      </div>
+    <div class="square_gap"></div>
+    <div
+            class="square_player_div clickable square_text"
+            onclick="buttonChange()"
+            id="play_button_id"
+    >
+        <div class="square_content">
+            <div class="playpause" id="playButton_labelID" style="padding-right:10px;">
+                <div type="checkbox"/>
+            </div>
+        </div>
+        <p id="play_btn_inner" style="display: inline-block;margin:0;">PLAY</p>
+        <div>
+        </div>
     </div>
-    <!-- <input onclick="change()" type="button" value="Open Curtain" id="myButton1"></input> -->
-    <script src="js/M1SpatialAudioPlayer.js"></script>
-    <!-- add the header and footer -->
-    <script src="script.js"></script>
-  </body>
+</div>
+<!-- <input onclick="change()" type="button" value="Open Curtain" id="myButton1"></input> -->
+<script src="js/M1SpatialAudioPlayer.js"></script>
+<!-- add the header and footer -->
+<script src="script.js"></script>
+</body>
 </html>
