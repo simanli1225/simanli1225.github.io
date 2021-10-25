@@ -4,8 +4,10 @@ const videoOutput = document.getElementsByClassName("output_canvas")[0];
 
 function changeSize() {
   let { clientWidth } = document.documentElement;
-  videoOutput.width = clientWidth;
-  videoOutput.height = clientWidth / 1.33;
+  // videoOutput.width = clientWidth;
+  // videoOutput.height = clientWidth / 1.33;
+    videoOutput.width = 900;
+  videoOutput.height = 600;
 }
 
 changeSize();
