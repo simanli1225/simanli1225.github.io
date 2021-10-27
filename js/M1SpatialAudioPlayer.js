@@ -87,6 +87,12 @@ const boseARConfig = {
     },
     eulerScalar: { x: 1, y: 1, z: 1 },
 };
+//make the event listener when music ended
+audioFiles8.addEventListener("ended", function() 
+{
+     alert("ended");
+});
+
 
 boseARDeviceElement.setAttribute("double-tap", "");
 boseARDeviceElement.addEventListener("doubleTap", () => {
