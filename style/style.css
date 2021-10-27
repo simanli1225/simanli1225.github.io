@@ -1,14 +1,22 @@
 @font-face {
   font-family: suisse_reg;
-  src: url(../source/SuisseIntl-Regular.otf);
+  src: url(../resources/SuisseIntl-Regular.otf);
 }
 
 @font-face {
   font-family: suisse_med;
-  src: url(../source/SuisseIntl-Medium.otf);
+  src: url(../resources/SuisseIntl-Medium.otf);
 }
 
 body {
+  background-color: black;
+  margin: 0;
+  cursor: default;
+}
+
+.body_cl {
+  width: 100vw;
+  height: 100vh;
   background-color: black;
   margin: 0;
 }
@@ -48,6 +56,16 @@ body {
   position: fixed;
   top: 35px;
   width: 100%;
+}
+
+.legal_info_icon {
+  display: none;
+  position: fixed;
+  color: white;
+  font-size: 15px;
+  font-family: suisse_med;
+  right: 6.5vw;
+  top: 35px;
 }
 
 #icon_logo {
@@ -168,7 +186,17 @@ a {
   padding: 3.198vw 10.2951vw 3.1365vw 10.2951vw;
 }
 
+#main_info_icon_mb {
+  margin-left: 1.99998vw;
+  padding: 3.198vw 10.2951vw 3.1365vw 10.2951vw;
+}
+
 #main_listen_icon {
+  margin-right: 1.99998vw;
+  padding: 3.198vw 12.792vw 3.075vw 12.792vw;
+}
+
+#main_listen_icon_mb {
   margin-right: 1.99998vw;
   padding: 3.198vw 12.792vw 3.075vw 12.792vw;
 }
@@ -316,6 +344,10 @@ a {
   #legal_top {
     top: 35px;
   }
+  .legal_info_icon {
+    top: 35px;
+    right: 3vw;
+  }
   #legal_bottom {
     bottom: 35px;
     padding-left: 3vw;
@@ -336,7 +368,15 @@ a {
     margin-left: 1vw;
     padding: 2.9vw 11.2995vw 2.9vw 11.2995vw;
   }
+  #main_info_icon_mb {
+    margin-left: 1vw;
+    padding: 2.9vw 11.2995vw 2.9vw 11.2995vw;
+  }
   #main_listen_icon {
+    margin-right: 1vw;
+    padding: 2.9vw 13vw 2.9vw 13vw;
+  }
+  #main_listen_icon_mb {
     margin-right: 1vw;
     padding: 2.9vw 13vw 2.9vw 13vw;
   }
@@ -365,6 +405,12 @@ a {
     cursor: pointer;
     z-index: 1000;
   }
+  #legal-item_id_2 {
+    position: fixed;
+    left: 3vw;
+    padding-top: 15px;
+    padding-left: 0;
+  }
   #again_icons_div {
     padding-top: 32vw;
   }
@@ -385,6 +431,14 @@ a {
   .button_icon {
     font-size: 48px;
   }
+  .square_div {
+    bottom: 10%;
+  }
+  .square_player_div,
+  .square_text,
+  .square_content {
+    width: 94vw;
+  }
   .button_title_cl {
     height: 18.4vw;
   }
@@ -392,7 +446,15 @@ a {
     margin-right: 3.6vw;
     padding: 3.2vw 22vw 3.2vw 22vw;
   }
+  #main_info_icon_mb {
+    margin-right: 3.6vw;
+    padding: 3.2vw 22vw 3.2vw 22vw;
+  }
   #main_listen_icon {
+    margin-left: 3.6vw;
+    padding: 3.2vw 28vw 3.2vw 28vw;
+  }
+  #main_listen_icon_mb {
     margin-left: 3.6vw;
     padding: 3.2vw 28vw 3.2vw 28vw;
   }
@@ -422,6 +484,14 @@ a {
   }
   #again_icons_div {
     padding-top: 50vw;
+  }
+  .info_text, #play_btn_inner {
+    font-size: 14px;
+  }
+  .playpause {
+    height: 10px;
+    border-width: 8px 0 8px 10px;
+    padding-right: 2px !important;
   }
 }
 /*# sourceMappingURL=style.css.map */
