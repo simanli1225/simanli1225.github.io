@@ -339,7 +339,7 @@ a {
 
 #warning {
   font-size: 24px;
-  font-family: suisse_med;
+  font-family: suisse_reg;
 }
 
 @media only screen and (max-width: 1440px) {
@@ -477,6 +477,9 @@ a {
   }
   #again_icons_div {
     padding-top: 45vw;
+  }
+  .output_canvas {
+    top: 30%;
   }
 }
 

@@ -340,7 +340,7 @@ a {
 }
 #warning{
   font-size:24px;
-  font-family:suisse_med;
+  font-family:suisse_reg;
 
 }
 //---------------- media query----------------//
@@ -493,6 +493,9 @@ a {
   }
   #again_icons_div {
     padding-top: 45vw;
+  }
+  .output_canvas{
+    top:30%;
   }
 }
 //---------------- 375px----------------//
