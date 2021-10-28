@@ -40,7 +40,7 @@ function _defineProperty(obj, key, value) {
       value: value,
       enumerable: true,
       configurable: true,
-      writable: true
+      writable: true,
     });
   } else {
     obj[key] = value;
@@ -159,67 +159,67 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
 
     _soundFilesCount.set(this, {
       writable: true,
-      value: 0
+      value: 0,
     });
 
     _soundFilesCountReady.set(this, {
       writable: true,
-      value: 0
+      value: 0,
     });
 
     _isDeleted.set(this, {
       writable: true,
-      value: false
+      value: false,
     });
 
     _isFromBuffer.set(this, {
       writable: true,
-      value: false
+      value: false,
     });
 
     _isPlaying.set(this, {
       writable: true,
-      value: false
+      value: false,
     });
 
     _isSoundReady.set(this, {
       writable: true,
-      value: false
+      value: false,
     });
 
     _buffer.set(this, {
       writable: true,
-      value: void 0
+      value: void 0,
     });
 
     _volume.set(this, {
       writable: true,
-      value: 1.0
+      value: 1.0,
     });
 
     _gainNode.set(this, {
       writable: true,
-      value: void 0
+      value: void 0,
     });
 
     _gains.set(this, {
       writable: true,
-      value: void 0
+      value: void 0,
     });
 
     _pannerNode.set(this, {
       writable: true,
-      value: void 0
+      value: void 0,
     });
 
     _smp.set(this, {
       writable: true,
-      value: void 0
+      value: void 0,
     });
 
     _cache.set(this, {
       writable: true,
-      value: {}
+      value: {},
     });
 
     _defineProperty(
@@ -232,12 +232,12 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
 
     _startTime.set(this, {
       writable: true,
-      value: 0
+      value: 0,
     });
 
     _stopTime.set(this, {
       writable: true,
-      value: 0
+      value: 0,
     });
 
     _currentTime.set(this, {
@@ -256,22 +256,27 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
           _this.audioContext.currentTime -
           _classPrivateFieldGet(_this, _startTime)
         );
-      }
+      },
     });
+
+    //here is for testing
+    console.log("here is for currentTime+");
+    console.log(_this.audioContext.currentTime);
+    //here up for testing
 
     _needToPlay.set(this, {
       writable: true,
-      value: false
+      value: false,
     });
 
     _playLooped.set(this, {
       writable: true,
-      value: false
+      value: false,
     });
 
     _waitToPlay.set(this, {
       writable: true,
-      value: 0
+      value: 0,
     });
 
     _initArray.set(this, {
@@ -282,7 +287,7 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
             ? arguments[0]
             : _classPrivateFieldGet(_this, _soundFilesCount);
         return new Array(count).fill(0.0);
-      }
+      },
     });
 
     _setGains.set(this, {
@@ -302,7 +307,7 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
             );
           }
         }
-      }
+      },
     });
 
     _preload.set(this, {
@@ -332,7 +337,7 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
         var options = {
           cache: "force-cache",
           method: "GET",
-          responseType: "arrayBuffer"
+          responseType: "arrayBuffer",
         };
 
         try {
@@ -371,7 +376,7 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
               .concat(_classPrivateFieldGet(_this, _soundFilesCount))
           ); // NOTE: If need here can add some logs case or any requirement action
         }
-      }
+      },
     });
 
     if (Object.getPrototypeOf(input) === AudioBuffer.prototype) {
@@ -503,19 +508,17 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
               j < _classPrivateFieldGet(this, _soundFilesCount) / 2;
               j += 1, i += 2
             ) {
-              _classPrivateFieldGet(this, _smp)[
-                i
-              ] = this.audioContext.createBufferSource();
+              _classPrivateFieldGet(this, _smp)[i] =
+                this.audioContext.createBufferSource();
 
               if (_classPrivateFieldGet(this, _isFromBuffer)) {
-                _classPrivateFieldGet(this, _smp)[
-                  i
-                ].buffer = this.audioContext.createBuffer(
-                  1,
-                  _classPrivateFieldGet(this, _buffer).length /
-                    _classPrivateFieldGet(this, _buffer).numberOfChannels,
-                  this.audioContext.sampleRate
-                );
+                _classPrivateFieldGet(this, _smp)[i].buffer =
+                  this.audioContext.createBuffer(
+                    1,
+                    _classPrivateFieldGet(this, _buffer).length /
+                      _classPrivateFieldGet(this, _buffer).numberOfChannels,
+                    this.audioContext.sampleRate
+                  );
 
                 _classPrivateFieldGet(this, _smp)[i].buffer.copyToChannel(
                   _classPrivateFieldGet(this, _buffer).getChannelData(j),
@@ -523,22 +526,19 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
                   0
                 );
               } else {
-                _classPrivateFieldGet(this, _smp)[
-                  i
-                ].buffer = _classPrivateFieldGet(this, _buffer)[j];
+                _classPrivateFieldGet(this, _smp)[i].buffer =
+                  _classPrivateFieldGet(this, _buffer)[j];
               }
 
-              _classPrivateFieldGet(this, _gainNode)[
-                i
-              ] = this.audioContext.createGain();
+              _classPrivateFieldGet(this, _gainNode)[i] =
+                this.audioContext.createGain();
               _classPrivateFieldGet(this, _gainNode)[i].gain.value = 0;
               /**
                * Create left side players of coeffs
                */
 
-              _classPrivateFieldGet(this, _pannerNode)[
-                i
-              ] = this.audioContext.createPanner();
+              _classPrivateFieldGet(this, _pannerNode)[i] =
+                this.audioContext.createPanner();
 
               _classPrivateFieldGet(this, _pannerNode)[i].setPosition(-1, 0, 0); // left
 
@@ -557,19 +557,17 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
                 this.audioContext.destination
               ); // RIGHT PLAYERS
 
-              _classPrivateFieldGet(this, _smp)[
-                i + 1
-              ] = this.audioContext.createBufferSource();
+              _classPrivateFieldGet(this, _smp)[i + 1] =
+                this.audioContext.createBufferSource();
 
               if (_classPrivateFieldGet(this, _isFromBuffer)) {
-                _classPrivateFieldGet(this, _smp)[
-                  i + 1
-                ].buffer = this.audioContext.createBuffer(
-                  1,
-                  _classPrivateFieldGet(this, _buffer).length /
-                    _classPrivateFieldGet(this, _buffer).numberOfChannels,
-                  this.audioContext.sampleRate
-                );
+                _classPrivateFieldGet(this, _smp)[i + 1].buffer =
+                  this.audioContext.createBuffer(
+                    1,
+                    _classPrivateFieldGet(this, _buffer).length /
+                      _classPrivateFieldGet(this, _buffer).numberOfChannels,
+                    this.audioContext.sampleRate
+                  );
 
                 _classPrivateFieldGet(this, _smp)[i + 1].buffer.copyToChannel(
                   _classPrivateFieldGet(this, _buffer).getChannelData(j),
@@ -577,22 +575,19 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
                   0
                 );
               } else {
-                _classPrivateFieldGet(this, _smp)[
-                  i + 1
-                ].buffer = _classPrivateFieldGet(this, _buffer)[j];
+                _classPrivateFieldGet(this, _smp)[i + 1].buffer =
+                  _classPrivateFieldGet(this, _buffer)[j];
               }
 
-              _classPrivateFieldGet(this, _gainNode)[
-                i + 1
-              ] = this.audioContext.createGain();
+              _classPrivateFieldGet(this, _gainNode)[i + 1] =
+                this.audioContext.createGain();
               _classPrivateFieldGet(this, _gainNode)[i + 1].gain.value = 0;
               /**
                * Create right side players of coeffs
                */
 
-              _classPrivateFieldGet(this, _pannerNode)[
-                i + 1
-              ] = this.audioContext.createPanner();
+              _classPrivateFieldGet(this, _pannerNode)[i + 1] =
+                this.audioContext.createPanner();
 
               _classPrivateFieldGet(this, _pannerNode)[i + 1].setPosition(
                 1,
@@ -643,7 +638,7 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
 
           _classPrivateFieldSet(this, _waitToPlay, time);
         }
-      }
+      },
       /**
        * Stopping play any sound file
        */
@@ -676,7 +671,7 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
               _classPrivateFieldGet(this, _smp)[i].disconnect();
           }
         }
-      }
+      },
       /**
        * Alias for the this.stop() method
        */
@@ -685,7 +680,15 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
       key: "pause",
       value: function pause() {
         this.stop();
-      }
+      },
+    },
+    {
+      //try the finish jump
+      key: "finish",
+      value: function finished() {
+        // this.stop();
+        console.log("the music finished playing");
+      },
     },
     {
       key: "remove",
@@ -696,7 +699,7 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
           });
 
         _classPrivateFieldSet(this, _isDeleted, true);
-      }
+      },
     },
     {
       key: "rewind",
@@ -705,7 +708,7 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
           arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
         this.stop();
         this.play(time >= 0 ? time : 0);
-      }
+      },
     },
     {
       key: "isReady",
@@ -714,19 +717,19 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
           _classPrivateFieldGet(this, _isSoundReady) &&
           !_classPrivateFieldGet(this, _isDeleted)
         );
-      }
+      },
     },
     {
       key: "isPlaying",
       value: function isPlaying() {
         return _classPrivateFieldGet(this, _isPlaying);
-      }
+      },
     },
     {
       key: "getAudioContext",
       value: function getAudioContext() {
         return this.audioContext;
-      }
+      },
     },
     {
       key: "progress",
@@ -736,7 +739,7 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
             _classPrivateFieldGet(this, _soundFilesCount)) *
           100
         ).toFixed(0);
-      }
+      },
       /**
        * Setting gains for all files
        * @param  {Array} vols binding new gain values by index
@@ -762,7 +765,7 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
        */
       get: function get() {
         return _classPrivateFieldGet(this, _gains);
-      }
+      },
       /**
        * Setting Master Gain/Volume
        * @param  {Array} volume
@@ -779,8 +782,8 @@ var Mach1SoundPlayer = /*#__PURE__*/ (function () {
        */
       get: function get() {
         return _classPrivateFieldGet(this, _volume);
-      }
-    }
+      },
+    },
   ]);
 
   return Mach1SoundPlayer;
