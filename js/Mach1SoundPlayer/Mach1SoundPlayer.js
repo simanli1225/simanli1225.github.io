@@ -1,30 +1,35 @@
 /*
  * Nach1 Spatial Web SoundPlayer Example
  * Description: Example of an audio player for Mach1Decode API and spatial audio playback
-*/
+ */
 
 /* eslint-disable new-cap, no-alert */
 
-class Mach1SoundPlayer { // eslint-disable-line no-unused-vars
-  #soundFilesCount = 0
-  #soundFilesCountReady = 0
+class Mach1SoundPlayer {
+  // eslint-disable-line no-unused-vars
+  #soundFilesCount = 0;
+  #soundFilesCountReady = 0;
 
-  #isDeleted = false
-  #isFromBuffer = false
-  #isPlaying = false
-  #isSoundReady = false
+  #isDeleted = false;
+  #isFromBuffer = false;
+  #isPlaying = false;
+  #isSoundReady = false;
+  #isFinished = false;
+  //add a finish track,2021.10.28
 
-  #buffer
+  #buffer;
 
-  #volume = 1.0
+  #volume = 1.0;
 
-  #gainNode
-  #gains
-  #pannerNode
-  #smp
+  #gainNode;
+  #gains;
+  #pannerNode;
+  #smp;
 
-  #cache = {}
-  audioContext = (window.AudioContext) ? new window.AudioContext() : new window.webkitAudioContext()
+  #cache = {};
+  audioContext = window.AudioContext
+    ? new window.AudioContext()
+    : new window.webkitAudioContext();
 
   #startTime = 0;
   #stopTime = 0;
@@ -35,10 +40,12 @@ class Mach1SoundPlayer { // eslint-disable-line no-unused-vars
    */
   #currentTime = () => {
     if (!this.isReady() || !this.#isPlaying) {
-      return this.#stopTime - this.#startTime > 0 ? this.#stopTime - this.#startTime : 0;
+      return this.#stopTime - this.#startTime > 0
+        ? this.#stopTime - this.#startTime
+        : 0;
     }
     return this.audioContext.currentTime - this.#startTime;
-  }
+  };
 
   #needToPlay = false;
   #playLooped = false;
@@ -47,7 +54,7 @@ class Mach1SoundPlayer { // eslint-disable-line no-unused-vars
    * Create new array with fixed item count, each item have zero value
    * @type {Array}
    */
-  #initArray = (count = this.#soundFilesCount) => new Array(count).fill(0.0)
+  #initArray = (count = this.#soundFilesCount) => new Array(count).fill(0.0);
   /**
    * Set default time value for a gain nodes (for all buffered sound files)
    * @type {}
@@ -55,10 +62,14 @@ class Mach1SoundPlayer { // eslint-disable-line no-unused-vars
   #setGains = () => {
     if (this.isReady() && this.#isPlaying) {
       for (let i = 0; i < this.#smp.length; i += 1) {
-        this.#gainNode[i].gain.setTargetAtTime(this.#gains[i] * this.#volume, this.audioContext.currentTime, 0.05);
+        this.#gainNode[i].gain.setTargetAtTime(
+          this.#gains[i] * this.#volume,
+          this.audioContext.currentTime,
+          0.05
+        );
       }
     }
-  }
+  };
 
   /**
    * Downloads, caches, and sets default properties for the received file
@@ -67,20 +78,25 @@ class Mach1SoundPlayer { // eslint-disable-line no-unused-vars
   #preload = async (uri, number) => {
     console.time(`load file ${uri}`);
 
-    const getDecodedAudioData = (blob) => new Promise((resolve) => {
-      if (this.#cache[uri]) {
-        resolve(this.#cache[uri]);
-      } else {
-        this.audioContext.decodeAudioData(blob, (data) => {
-          this.#cache[uri] = data;
-          resolve(data);
-        }, () => console.error('AudioContext issue'));
-      }
-    });
+    const getDecodedAudioData = (blob) =>
+      new Promise((resolve) => {
+        if (this.#cache[uri]) {
+          resolve(this.#cache[uri]);
+        } else {
+          this.audioContext.decodeAudioData(
+            blob,
+            (data) => {
+              this.#cache[uri] = data;
+              resolve(data);
+            },
+            () => console.error("AudioContext issue")
+          );
+        }
+      });
     const options = {
-      cache: 'force-cache',
-      method: 'GET',
-      responseType: 'arrayBuffer',
+      cache: "force-cache",
+      method: "GET",
+      responseType: "arrayBuffer",
     };
 
     try {
@@ -92,19 +108,27 @@ class Mach1SoundPlayer { // eslint-disable-line no-unused-vars
 
       this.#buffer[number] = buffer;
 
-      console.log(`[MACH1] Mach1SoundPlayer {path: ${uri}, i: ${number * 2}, ${number * 2 + 1}} loaded`);
+      console.log(
+        `[MACH1] Mach1SoundPlayer {path: ${uri}, i: ${number * 2}, ${
+          number * 2 + 1
+        }} loaded`
+      );
       console.timeEnd(`load file ${uri}`);
 
       this.#soundFilesCountReady += 2;
-      this.#isSoundReady = (this.#soundFilesCountReady === this.#soundFilesCount);
+      this.#isSoundReady = this.#soundFilesCountReady === this.#soundFilesCount;
     } catch (e) {
       this.#isSoundReady = false;
       console.timeEnd(`doesn't load file ${uri}`);
 
-      throw new Error(`Can't load sound files; Completed ${this.#soundFilesCountReady}/${this.#soundFilesCount}`);
+      throw new Error(
+        `Can't load sound files; Completed ${this.#soundFilesCountReady}/${
+          this.#soundFilesCount
+        }`
+      );
       // NOTE: If need here can add some logs case or any requirement action
     }
-  }
+  };
 
   /**
    * @param {Array|AudioBuffer} input array with sound files paths [url]
@@ -149,7 +173,9 @@ class Mach1SoundPlayer { // eslint-disable-line no-unused-vars
    * @return {String} Percentages from 0 to 100 as a string [integer]
    */
   get progress() {
-    return ((this.#soundFilesCountReady / this.#soundFilesCount) * 100).toFixed(0);
+    return ((this.#soundFilesCountReady / this.#soundFilesCount) * 100).toFixed(
+      0
+    );
   }
 
   /**
@@ -177,14 +203,14 @@ class Mach1SoundPlayer { // eslint-disable-line no-unused-vars
     return this.#gains;
   }
 
- /**
+  /**
    * Setting Master Gain/Volume
    * @param  {Array} volume
    */
   set volume(vol) {
     this.#volume = parseFloat(vol);
   }
-  
+
   /**
    * Return Master Gain/Volume
    * @return {String} Volume from 0 to 1 as a float
@@ -203,9 +229,15 @@ class Mach1SoundPlayer { // eslint-disable-line no-unused-vars
           this.#smp[i] = this.audioContext.createBufferSource();
           if (this.#isFromBuffer) {
             this.#smp[i].buffer = this.audioContext.createBuffer(
-              1, this.#buffer.length / this.#buffer.numberOfChannels, this.audioContext.sampleRate
+              1,
+              this.#buffer.length / this.#buffer.numberOfChannels,
+              this.audioContext.sampleRate
             );
-            this.#smp[i].buffer.copyToChannel(this.#buffer.getChannelData(j), 0, 0);
+            this.#smp[i].buffer.copyToChannel(
+              this.#buffer.getChannelData(j),
+              0,
+              0
+            );
           } else {
             this.#smp[i].buffer = this.#buffer[j];
           }
@@ -218,7 +250,7 @@ class Mach1SoundPlayer { // eslint-disable-line no-unused-vars
            */
           this.#pannerNode[i] = this.audioContext.createPanner();
           this.#pannerNode[i].setPosition(-1, 0, 0); // left
-          this.#pannerNode[i].panningModel = 'equalpower';
+          this.#pannerNode[i].panningModel = "equalpower";
 
           this.#smp[i].connect(this.#pannerNode[i]);
           this.#pannerNode[i].connect(this.#gainNode[i]);
@@ -228,9 +260,15 @@ class Mach1SoundPlayer { // eslint-disable-line no-unused-vars
           this.#smp[i + 1] = this.audioContext.createBufferSource();
           if (this.#isFromBuffer) {
             this.#smp[i + 1].buffer = this.audioContext.createBuffer(
-              1, this.#buffer.length / this.#buffer.numberOfChannels, this.audioContext.sampleRate
+              1,
+              this.#buffer.length / this.#buffer.numberOfChannels,
+              this.audioContext.sampleRate
             );
-            this.#smp[i + 1].buffer.copyToChannel(this.#buffer.getChannelData(j), 0, 0);
+            this.#smp[i + 1].buffer.copyToChannel(
+              this.#buffer.getChannelData(j),
+              0,
+              0
+            );
           } else {
             this.#smp[i + 1].buffer = this.#buffer[j];
           }
@@ -243,7 +281,7 @@ class Mach1SoundPlayer { // eslint-disable-line no-unused-vars
            */
           this.#pannerNode[i + 1] = this.audioContext.createPanner();
           this.#pannerNode[i + 1].setPosition(1, 0, 0); // right
-          this.#pannerNode[i + 1].panningModel = 'equalpower';
+          this.#pannerNode[i + 1].panningModel = "equalpower";
 
           this.#smp[i + 1].connect(this.#pannerNode[i + 1]);
           this.#pannerNode[i + 1].connect(this.#gainNode[i + 1]);
@@ -264,6 +302,11 @@ class Mach1SoundPlayer { // eslint-disable-line no-unused-vars
       this.#playLooped = looped;
       this.#waitToPlay = time;
     }
+    console.log("heyyyy here is inside of a player");
+    this.addEventListener("ended", function () {
+      //when a song finished playing
+      console.log("music is doneeeeeeeeeeeee");
+    });
   }
 
   /**
@@ -280,7 +323,8 @@ class Mach1SoundPlayer { // eslint-disable-line no-unused-vars
       for (let i = 0; i < this.#smp.length; i += 1) {
         this.#smp[i].stop();
 
-        if (typeof this.#smp[i].disconnect === 'function') this.#smp[i].disconnect();
+        if (typeof this.#smp[i].disconnect === "function")
+          this.#smp[i].disconnect();
       }
     }
   }

@@ -87,6 +87,10 @@ const boseARConfig = {
     },
     eulerScalar: { x: 1, y: 1, z: 1 },
 };
+console.log("here is player"+Player);
+console.log(Player);
+console.log(Player.isPlaying);
+
 //make the event listener when music ended
 // Player.addEventListener("ended", function() 
 // {
