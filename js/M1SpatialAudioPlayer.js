@@ -374,7 +374,7 @@ async function renderPrediction() {
 async function trackerMain() {
     const info = document.getElementById("info");
     const element = `
-    <img class="svg-loader" src="/img/spinner.svg">
+    <img class="svg-loader" src="/img/loading.gif">
     <p id="progress:debug">loading...</p>
     <p id="progress"></p>
   `;
@@ -406,7 +406,8 @@ async function trackerMain() {
 
     // disable all camera based handlers and settings
     if (!isSetupCamera) {
-        info.innerHTML = "";
+        // comment out the lines
+        // info.innerHTML = "";
         document.getElementById("main").style.display = "";
 
         // enable all mods without facetracker part
