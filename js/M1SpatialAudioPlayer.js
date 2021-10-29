@@ -314,7 +314,7 @@ async function renderPrediction() {
   grd.addColorStop(1, "white");
   // Fill with gradient
   ctx.fillStyle = grd;
-  ctx.fillRect(10, 10, 150, 80);
+  ctx.fillRect(0, 0, videoWidth, videoHeight);
 
   document.getElementById("stats").innerHTML = "";
   document.getElementById("warning").innerHTML =
