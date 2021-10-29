@@ -303,19 +303,19 @@ videoHeight = window.innerHeight;
 async function renderPrediction() {
   const predictions = await model.estimateFaces(video);
   const warningMessage = "WARNING: UNABLE TO TRACK FACE!";
-  // ctx.fillStyle = "rgb(0,0,0)";
+  ctx.fillStyle = "rgb(0,0,0)";
   //   ctx.fillStyle = canvasFillColor;
   //   ctx.fillRect(0, 0, videoWidth, videoHeight);
 
   // create the gradient background
   // Create gradient
-  var grd = ctx.createLinearGradient(0,0,200,0);
-  grd.addColorStop(0,"red");
-  grd.addColorStop(1,"white");
+//   var grd = ctx.createLinearGradient(0,0,200,0);
+//   grd.addColorStop(0,"red");
+//   grd.addColorStop(1,"white");
   
   // Fill with gradient
 //   ctx.fillStyle = grd;
-    ctx.fillStyle = "rgb(200,0,0)";
+    // ctx.fillStyle = "rgb(200,0,0)";
 
   ctx.fillRect(0, 0, videoWidth, videoHeight);
 
